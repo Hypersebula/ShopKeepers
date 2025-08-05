@@ -490,19 +490,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556b6c4b6c0ae22489d42a17761016cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
+  walkSpeed: 100
+  sprintSpeed: 150
   groundDrag: 10
   airDrag: 5
-  jumpForce: 25
+  jumpForce: 32
   jumpCooldown: 0.25
-  airMultiplier: 0.4
+  airMultiplier: 0.5
+  crouchSpeed: 50
+  crouchYScale: 0.5
   jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
   playerHeight: 2
   Ground:
     serializedVersion: 2
     m_Bits: 8
+  maxSlopeAngle: 40
   PlayerBody: {fileID: 709865212}
   orientation: {fileID: 591057342}
+  state: 0
 --- !u!54 &253273246
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2333,7 +2340,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052818237}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6756dc6872bde21488cd448fc3d7eeb8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3938,7 +3945,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068680129}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6756dc6872bde21488cd448fc3d7eeb8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
