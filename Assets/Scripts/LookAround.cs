@@ -4,8 +4,10 @@ public class LookAround : MonoBehaviour
 {
     [Header("References")]
     public Transform playerRoot; // After Clamp Rotation
+    public Transform playerBody;
     public Transform headPivot; // Here goes the Head Object
     public Camera mainCamera; // Here goes the Camera
+    [SerializeField] public SpeedTracker speedTracker;
 
     [Header("Settings")]
     public float sensitivity = 2f; // Sensitivity
@@ -50,5 +52,25 @@ public class LookAround : MonoBehaviour
 
         // Apply local rotation to the head
         headPivot.localRotation = Quaternion.Euler(pitch, yawHead, 0f);
+
+        // Define Speed
+        float speed = speedTracker.Speed;
+
+        // Apply Rotation to Body if moving
+        if(speed > 0.1f)
+        {
+            // Get head Yaw
+            float headYaw = headPivot.eulerAngles.y;
+
+            // Target Rotation for Body
+            Quaternion targetRotation = Quaternion.Euler(0f, headYaw, 0f);
+
+            // Rotate body to Head smoothly
+            playerBody.rotation = Quaternion.Slerp(
+                playerBody.rotation,
+                targetRotation,
+                Time.deltaTime * 5f
+                );
+        }
     }
 }
