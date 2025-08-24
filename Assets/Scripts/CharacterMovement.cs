@@ -4,8 +4,14 @@ public class CharacterMovement : MonoBehaviour
 {
     private CharacterController controller;
 
+    public GameObject Legs;
+
     public float walkSpeed = 5f;
     public float sprintSpeed = 7.5f;
+    public float HeightSpeed = 1f;
+    public float crouchSpeed = 2.5f;
+    public float minHeight = 0.5f;
+    public float maxHeight = 1f;
     public float Stamina = 5f;
     public float gravity = -9.81f;
     public float jumpHeight = 2f;
@@ -20,6 +26,7 @@ public class CharacterMovement : MonoBehaviour
 
     public bool isGrounded;
     public bool isSprinting;
+    public bool isCrouching;
 
     private void Start()
     {
@@ -55,7 +62,7 @@ public class CharacterMovement : MonoBehaviour
         //Sprinting
         float currentSpeed;
 
-        if (Input.GetKey(KeyCode.LeftShift) && Stamina > 0)
+        if (Input.GetKey(KeyCode.LeftShift) && Stamina > 0 && !isCrouching)
         {
             currentSpeed = sprintSpeed;
             isSprinting = true;
@@ -82,9 +89,17 @@ public class CharacterMovement : MonoBehaviour
         controller.Move(move * currentSpeed * Time.deltaTime);
 
         // Jump
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && !isCrouching)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        // Crouch
+        
+
+        if (Input.GetButton("Left Control"))
+        {
+            
         }
 
         // Gravity
