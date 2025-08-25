@@ -4,22 +4,40 @@ public class CharacterMovement : MonoBehaviour
 {
     private CharacterController controller;
 
+    [Header("Speeds")]
     public float walkSpeed = 5f;
     public float sprintSpeed = 7.5f;
+    public float crouchSpeed = 2.5f;
+
+    [Header("Crouch")]
+
+    [Header("Values")]
     public float Stamina = 5f;
+
+    [Header("Height Control")]
     public float gravity = -9.81f;
     public float jumpHeight = 2f;
     public float groundDistance = 0.4f;
 
+    [Header("Transforms")]
     public Transform groundCheck;
     public Transform head;
+
+    [Header("GameObjects")]
+    public GameObject Legs;
     
+    [Header("Layers")]
     public LayerMask groundMask;
 
+    [Header("Vector3")]
     Vector3 velocity;
+    private Vector3 standCenter;
+    private Vector3 crouchCenter;
 
+    [Header("States")]
     public bool isGrounded;
     public bool isSprinting;
+    public bool isCrouching;
 
     private void Start()
     {
@@ -28,6 +46,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
+        // -----Grounding-----
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0)
@@ -35,6 +54,8 @@ public class CharacterMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
+        // -----WASD Movement-----
+        
         // WASD Input
         float horizontal = Input.GetAxis("Horizontal"); // Left Right
         float vertical = Input.GetAxis("Vertical"); // Up Down
@@ -52,7 +73,7 @@ public class CharacterMovement : MonoBehaviour
         // Combine into movement Vector (relative to player orientation)
         Vector3 move = right * horizontal + forward * vertical;
 
-        //Sprinting
+        // -----Sprinting-----
         float currentSpeed;
 
         if (Input.GetKey(KeyCode.LeftShift) && Stamina > 0)
@@ -66,7 +87,7 @@ public class CharacterMovement : MonoBehaviour
             isSprinting = false;
         }
 
-        // Stamina Drain
+        // -----Stamina Drain-----
         if(isSprinting)
         {
             Stamina = Stamina - Time.deltaTime;
@@ -78,16 +99,18 @@ public class CharacterMovement : MonoBehaviour
 
         Stamina = Mathf.Clamp(Stamina, 0, 10);
 
-        // Apply movement through CharacterController
+        // -----Apply movement through CharacterController-----
         controller.Move(move * currentSpeed * Time.deltaTime);
 
-        // Jump
+        // -----Jump-----
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-        // Gravity
+        // -----Crouch-----
+
+        // -----Gravity-----
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
