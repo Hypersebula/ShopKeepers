@@ -2242,6 +2242,117 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297487393}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1370365369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1370365371}
+  - component: {fileID: 1370365370}
+  m_Layer: 0
+  m_Name: BoneSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1370365370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370365369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ce42d088590b44c962244b21423a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bones:
+  - boneName: Head
+    swingLimit: 0
+    twistLimit: 10
+    spring: 3000
+    damper: 200
+    maxForce: Infinity
+  - boneName: UpperChest
+    swingLimit: 0
+    twistLimit: 10
+    spring: 3000
+    damper: 200
+    maxForce: Infinity
+  - boneName: UpperArm.L
+    swingLimit: 0
+    twistLimit: 10
+    spring: 3000
+    damper: 200
+    maxForce: Infinity
+  - boneName: LowerArm.L
+    swingLimit: 0
+    twistLimit: 10
+    spring: 3000
+    damper: 200
+    maxForce: Infinity
+  - boneName: UpperArm.R
+    swingLimit: 0
+    twistLimit: 10
+    spring: 3000
+    damper: 200
+    maxForce: Infinity
+  - boneName: LowerArm.R
+    swingLimit: 0
+    twistLimit: 10
+    spring: 3000
+    damper: 200
+    maxForce: Infinity
+  - boneName: LowerChest
+    swingLimit: 0
+    twistLimit: 10
+    spring: 3000
+    damper: 200
+    maxForce: Infinity
+  - boneName: UpperLeg.L
+    swingLimit: 0
+    twistLimit: 10
+    spring: 100
+    damper: 50
+    maxForce: Infinity
+  - boneName: LowerLeg.L
+    swingLimit: 0
+    twistLimit: 10
+    spring: 3000
+    damper: 200
+    maxForce: Infinity
+  - boneName: UpperLeg.R
+    swingLimit: 0
+    twistLimit: 10
+    spring: 3000
+    damper: 200
+    maxForce: Infinity
+  - boneName: LowerLeg.R
+    swingLimit: 0
+    twistLimit: 10
+    spring: 3000
+    damper: 200
+    maxForce: Infinity
+--- !u!4 &1370365371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370365369}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5933263522668333826}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1392318946
 GameObject:
   m_ObjectHideFlags: 0
@@ -3968,7 +4079,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722881987998867788}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4169,7 +4280,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122128927248585310}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 7.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4207,7 +4318,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.003075368
+  m_Radius: 0.005
   m_Height: 0.012519395
   m_Direction: 1
   m_Center: {x: 1.965678e-10, y: 0.0063477834, z: 0.000035672452}
@@ -6552,7 +6663,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5176836961843930202}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7669,6 +7780,7 @@ Transform:
   m_Children:
   - {fileID: 3379945945570876316}
   - {fileID: 7360721475882504295}
+  - {fileID: 1370365371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &6037586211496909831
@@ -7792,6 +7904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5933263522668333826}
   - component: {fileID: 6421287614684172729}
+  - component: {fileID: 6421287614684172730}
   m_Layer: 0
   m_Name: RagdollCharacter-2
   m_TagString: Untagged
@@ -7818,7 +7931,6 @@ MonoBehaviour:
   tripodSize: 1
   boneColor: {r: 1, g: 0.36320752, b: 0.5114355, a: 0.5}
   m_Transforms:
-  - {fileID: 3379945945570876316}
   - {fileID: 1045829263063988464}
   - {fileID: 3204064580562449668}
   - {fileID: 6808890022671596673}
@@ -7875,6 +7987,23 @@ MonoBehaviour:
   - {fileID: 7082399306024576680}
   - {fileID: 1640303949284441577}
   - {fileID: 7360721475882504295}
+--- !u!114 &6421287614684172730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6421287614684172728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6a798f9e02d9c4697680cee61ff606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 1370365370}
+  apply: 1
+  applyAll: 0
+  Name: 
+  Value: 0
 --- !u!1 &6516005293477149723
 GameObject:
   m_ObjectHideFlags: 0
@@ -8585,7 +8714,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4217761056748789142}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9009,7 +9138,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7699818141759390625}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 7.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9324,7 +9453,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8054531061662619513}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9885,7 +10014,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8704267999510944621}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 7.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9923,7 +10052,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.0030995233
+  m_Radius: 0.005
   m_Height: 0.0125775095
   m_Direction: 1
   m_Center: {x: -1.7120043e-10, y: 0.0063746204, z: 0.00006962215}
