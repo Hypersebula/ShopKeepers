@@ -13,8 +13,13 @@ public class JointApplier : MonoBehaviour
     public string Name;
     public float Value;
 
+    [Header("SlerpDrive")]
+    public bool useSlerp;
+
     void Start()
     {
+        useSlerp = false;
+
         if (apply)
             ApplyJointSettings();
         apply = false;
@@ -81,15 +86,30 @@ public class JointApplier : MonoBehaviour
             joint.angularYLimit = swingY;
             joint.angularZLimit = swingZ;
 
-            // Apply drive with maximumForce
-            JointDrive drive = new JointDrive
+            // Apply Drives
+            if (settings.useSlerp)
             {
-                positionSpring = settings.spring,
-                positionDamper = settings.damper,
-                maximumForce = settings.maxForce
-            };
-            joint.angularXDrive = drive;
-            joint.angularYZDrive = drive;
+                JointDrive slerpDrive = new JointDrive
+                {
+                    positionSpring = settings.slerpSpring,
+                    positionDamper = settings.slerpDamper,
+                    maximumForce = settings.slerpMaxForce
+                };
+                joint.rotationDriveMode = RotationDriveMode.Slerp;
+                joint.slerpDrive = slerpDrive;
+            }
+            else
+            {
+                JointDrive drive = new JointDrive
+                {
+                    positionSpring = settings.spring,
+                    positionDamper = settings.damper,
+                    maximumForce = settings.maxForce
+                };
+                joint.rotationDriveMode = RotationDriveMode.XYAndZ;
+                joint.angularXDrive = drive;
+                joint.angularYZDrive = drive;
+            }
         }
 
         Debug.Log("Joint settings applied to " + joints.Length + " joints.");
@@ -116,6 +136,15 @@ public class JointApplier : MonoBehaviour
                     break;
                 case "maxforce":
                     b.maxForce = value;
+                    break;
+                case "slerpspring":
+                    b.slerpSpring = value;
+                    break;
+                case "slerpdamper":
+                    b.slerpDamper = value;
+                    break;
+                case "slerpmaxforce":
+                    b.slerpMaxForce = value;
                     break;
                 default:
                     Debug.LogWarning("Unknown value name: " + valueName);

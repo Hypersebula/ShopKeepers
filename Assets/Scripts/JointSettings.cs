@@ -9,6 +9,11 @@ public class BoneSettings
     public float spring = 200f;
     public float damper = 20f;
     public float maxForce = Mathf.Infinity;
+
+    public bool useSlerp = false;
+    public float slerpSpring = 1000f;
+    public float slerpDamper = 50f;
+    public float slerpMaxForce = 1000f;
 }
 
 public class JointSettings : MonoBehaviour
