@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HeadLift : MonoBehaviour
+public class HeadPositioning : MonoBehaviour
 {
     public float upwardForce = 50f;
 
@@ -9,6 +9,11 @@ public class HeadLift : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void FixedUpdate()
