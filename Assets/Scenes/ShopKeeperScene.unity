@@ -9979,6 +9979,7 @@ GameObject:
   - component: {fileID: 5933263522668333826}
   - component: {fileID: 6421287614684172729}
   - component: {fileID: 6421287614684172730}
+  - component: {fileID: 6421287614684172731}
   m_Layer: 0
   m_Name: RagdollCharacter-2
   m_TagString: Untagged
@@ -10079,6 +10080,30 @@ MonoBehaviour:
   Name: 
   Value: 0
   useSlerp: 0
+--- !u!114 &6421287614684172731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6421287614684172728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9696db4c6fbd8a94d907c38538f3f038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bones: []
+  settings:
+    Name: 
+    Strenght: 0
+    spring: 0
+    damper: 0
+    twistLimit: 0
+    swingLimit: 0
+  AngularMotionLimited: 0
+  twistLimited: 0
+  swingLimited: 0
+  ApplyStrenght: 0
 --- !u!1 &6516005293477149723
 GameObject:
   m_ObjectHideFlags: 0

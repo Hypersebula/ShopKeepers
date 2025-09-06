@@ -20,6 +20,7 @@ public class JointApplier : MonoBehaviour
     {
         useSlerp = false;
 
+
         if (apply)
             ApplyJointSettings();
         apply = false;
