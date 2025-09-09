@@ -1612,6 +1612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_________________________________________________
       objectReference: {fileID: 0}
+    - target: {fileID: 6220427420142257133, guid: 54f1aebcad3b2e946a6206a41a984327, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8959923820905154197, guid: 54f1aebcad3b2e946a6206a41a984327, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.892
@@ -10069,7 +10073,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6421287614684172728}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf6a798f9e02d9c4697680cee61ff606, type: 3}
   m_Name: 
@@ -10092,18 +10096,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9696db4c6fbd8a94d907c38538f3f038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bones: []
+  bones:
+  - Name: Head
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
+  - Name: UpperChest
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
+  - Name: LowerChest
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
+  - Name: UpperArm.L
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
+  - Name: LowerArm.L
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
+  - Name: UpperArm.R
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
+  - Name: LowerArm.R
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
+  - Name: UpperLeg.L
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
+  - Name: LowerLeg.L
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
+  - Name: UpperLeg.R
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
+  - Name: LowerLeg.R
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
+    twistLimit: 10
+    swingLimit: 10
   settings:
     Name: 
-    Strenght: 0
-    spring: 0
-    damper: 0
+    localStrenghtMultiplier: 0
+    localSpring: 0
+    localDamper: 0
     twistLimit: 0
     swingLimit: 0
   AngularMotionLimited: 0
   twistLimited: 0
   swingLimited: 0
-  ApplyStrenght: 0
+  UpdateStrenght: 0
+  globalStrenghtMultiplier: 1
+  globalSpring: 100
+  globalDamper: 10
+  maxForce: 1000
 --- !u!1 &6516005293477149723
 GameObject:
   m_ObjectHideFlags: 0
