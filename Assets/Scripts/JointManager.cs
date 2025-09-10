@@ -39,6 +39,10 @@ public class JointManager : MonoBehaviour
     {
         strenghtJoints.AddRange(GetComponentsInChildren<ConfigurableJoint>());
         ApplyStrenght();
+
+        twistLimited = true;
+        swingLimited = true;
+        AngularMotionLimited = true;
     }
 
     public void RunSettings()
