@@ -61,6 +61,12 @@ public class JointManager : MonoBehaviour
                 }
             }
 
+            if (settings == null)
+            {
+                Debug.LogWarning("No settings found for joint: " + joint.gameObject.name);
+                continue;
+            }
+
             // Apply angular Limits
             if (AngularMotionLimited)
             {
