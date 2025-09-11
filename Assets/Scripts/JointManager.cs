@@ -6,19 +6,21 @@ public class Settings
 {
     public string Name;
 
-    public float localStrenghtMultiplier;
+    public float strenghtMultiplier = 1f;
 
-    public float localSpring = 0f;
-    public float localDamper = 0f;
+    public float spring = 100f;
+    public float damper = 10f;
 
-    public float twistLimit = 0f;
-    public float swingLimit = 0f;
+    public float twistLimit = 10f;
+    public float swingLimit = 10f;
 }
 
 public class JointManager : MonoBehaviour
 {
     public Settings[] bones;
     public Settings settings;
+
+    public HeadPositioning head;
 
     [Header("Bools")]
     public bool AngularMotionLimited = false;
@@ -27,11 +29,9 @@ public class JointManager : MonoBehaviour
     public bool UpdateStrenght = false;
 
     [Header("Strenght")]
-    public float globalStrenghtMultiplier = 1f;
-
-    public float globalSpring = 100f;
-    public float globalDamper = 10f;
+    public float strenghtMultiplier = 1f;
     public float maxForce = 1000f;
+    public float headForce = 1000f;
 
     private List<ConfigurableJoint> strenghtJoints = new List<ConfigurableJoint>();
 
@@ -39,10 +39,17 @@ public class JointManager : MonoBehaviour
     {
         strenghtJoints.AddRange(GetComponentsInChildren<ConfigurableJoint>());
         ApplyStrenght();
+        RunSettings();
 
         twistLimited = true;
         swingLimited = true;
         AngularMotionLimited = true;
+    }
+
+    public void Update()
+    {
+        RunSettings();
+        ApplyStrenght();
     }
 
     public void RunSettings()
@@ -98,9 +105,12 @@ public class JointManager : MonoBehaviour
         foreach (var joint in strenghtJoints)
         {
             JointDrive drive = new JointDrive();
-            drive.positionSpring = globalSpring * globalStrenghtMultiplier;
-            drive.positionDamper = globalDamper * globalStrenghtMultiplier;
+            drive.positionSpring = settings.spring * settings.strenghtMultiplier;
+            drive.positionDamper = settings.damper * settings.strenghtMultiplier;
             drive.maximumForce = maxForce;
+
+            head.upwardForce = headForce * strenghtMultiplier;
+            head.upwardForce = Mathf.Clamp(head.upwardForce, 0, 1000);
 
             joint.slerpDrive = drive;
 
