@@ -13,8 +13,8 @@ public class SpeedTracker : MonoBehaviour
         currentVelocity = displacement / Time.deltaTime;
         previousPosition = transform.position;
 
-        // Horizontal Velocity (on plane)
-        Vector3 horizontalVelocity = new Vector3(currentVelocity.x, 0, currentVelocity.z);
-        Speed = horizontalVelocity.magnitude;
+        Vector3 velocity = new Vector3(currentVelocity.x, currentVelocity.y, currentVelocity.z);
+        Speed = velocity.magnitude;
+        Speed = Mathf.Round(Speed * 10f) / 10f;
     }
 }

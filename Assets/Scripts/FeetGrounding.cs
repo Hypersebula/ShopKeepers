@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FeetGrounding : MonoBehaviour
 {
-    public float castDistance = 0.2f;
+    public float checkRadius = 0.2f;
     public bool isGrounded;
 
     public LayerMask groundMask;
@@ -11,9 +11,12 @@ public class FeetGrounding : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = (Physics.Raycast(transform.position, Vector3.down, castDistance, groundMask));
+        isGrounded = (Physics.CheckSphere(transform.position, checkRadius, groundMask));
+    }
 
-        Debug.DrawRay(transform.position, Vector3.down * castDistance,
-                      isGrounded ? Color.green : Color.red);
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = isGrounded ? Color.green : Color.red;
+        Gizmos.DrawWireSphere(transform.position, checkRadius);
     }
 }
