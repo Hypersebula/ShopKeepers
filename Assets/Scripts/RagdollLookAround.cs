@@ -36,8 +36,8 @@ public class RagdollLookAround : MonoBehaviour
         chestUp = ToJointSpace(chestBone, chestBase * Quaternion.Euler(-45f, 0f, 0f));
 
         Quaternion spineBase = spineBone.transform.localRotation;
-        spineDown = ToJointSpace(spineBone, spineBase * Quaternion.Euler(15f, 0f, 0f));
-        spineUp = ToJointSpace(spineBone, spineBase * Quaternion.Euler(-15f, 0f, 0f));
+        spineDown = ToJointSpace(spineBone, spineBase * Quaternion.Euler(300f, 0f, 0f));
+        spineUp = ToJointSpace(spineBone, spineBase * Quaternion.Euler(-300f, 0f, 0f));
     }
 
     private void Update()

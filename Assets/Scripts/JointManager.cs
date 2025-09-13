@@ -30,7 +30,7 @@ public class JointManager : MonoBehaviour
 
     [Header("Strenght")]
     public float strenghtMultiplier = 1f;
-    public float maxForce = 1000f;
+    public float maxForce = 10000000f;
     public float headForce = 1000f;
 
     private List<ConfigurableJoint> strenghtJoints = new List<ConfigurableJoint>();
@@ -77,9 +77,9 @@ public class JointManager : MonoBehaviour
             // Apply angular Limits
             if (AngularMotionLimited)
             {
-                joint.angularXMotion = ConfigurableJointMotion.Limited;
-                joint.angularYMotion = ConfigurableJointMotion.Limited;
-                joint.angularZMotion = ConfigurableJointMotion.Limited;
+                //joint.angularXMotion = ConfigurableJointMotion.Limited;
+                //joint.angularYMotion = ConfigurableJointMotion.Limited;
+                //joint.angularZMotion = ConfigurableJointMotion.Limited;
             }
             // Apply twist Limits
             if (twistLimited)

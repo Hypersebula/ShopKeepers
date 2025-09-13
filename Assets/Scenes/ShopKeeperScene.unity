@@ -1654,7 +1654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6220427420142257133, guid: 54f1aebcad3b2e946a6206a41a984327, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396651690996835633, guid: 54f1aebcad3b2e946a6206a41a984327, type: 3}
       propertyPath: maxStamina
@@ -9746,9 +9746,9 @@ MonoBehaviour:
   minLook: -90
   maxLook: 90
   currentLook: 0
-  headBone: {fileID: 1302058136421191690}
+  headBone: {fileID: 0}
   neckBone: {fileID: 0}
-  chestBone: {fileID: 2155934143533622853}
+  chestBone: {fileID: 0}
   spineBone: {fileID: 5524168930047293702}
 --- !u!137 &5608170371520807539
 SkinnedMeshRenderer:
@@ -11407,7 +11407,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
