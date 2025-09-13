@@ -7316,6 +7316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkRadius: 0.1
+  castRadius: 0.2
   isGrounded: 0
   groundMask:
     serializedVersion: 2
@@ -11039,6 +11040,7 @@ MonoBehaviour:
   baseDelay: 0.1
   minimalKnockOutSpeed: 10
   knockOutStrenght: 0
+  getUpSpeed: 0.1
 --- !u!4 &7772549872802114354
 Transform:
   m_ObjectHideFlags: 0
@@ -11355,6 +11357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkRadius: 0.1
+  castRadius: 0.2
   isGrounded: 0
   groundMask:
     serializedVersion: 2

@@ -33,6 +33,7 @@ public class StrenghtManager : MonoBehaviour
     public float minimalKnockOutSpeed = 10f;
     public float knockOutStrenght = 0f;
     private float knockOutReboot = 1f; // A Brother to knockOutStrenght
+    public float getUpSpeed = 0.1f;
 
     private void Update()
     {
@@ -51,12 +52,14 @@ public class StrenghtManager : MonoBehaviour
             KnockOut();
         }
 
+        delay = Mathf.Clamp(delay, 0f, 10f);
+
         // Smoothly Stand Up after being Knocked Out
         knockOutReboot = Mathf.Clamp(knockOutReboot, 0, 1);
 
         if (GetUp)
         {
-            knockOutStrenght = knockOutReboot - Time.deltaTime;
+            knockOutStrenght = knockOutReboot - getUpSpeed * Time.deltaTime;
         }
         else
         {
