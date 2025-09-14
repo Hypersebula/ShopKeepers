@@ -18,7 +18,6 @@ public class Settings
 public class JointManager : MonoBehaviour
 {
     public Settings[] bones;
-    public Settings settings;
 
     public HeadPositioning head;
 
@@ -40,16 +39,15 @@ public class JointManager : MonoBehaviour
         strenghtJoints.AddRange(GetComponentsInChildren<ConfigurableJoint>());
         ApplyStrenght();
         RunSettings();
-
-        twistLimited = true;
-        swingLimited = true;
-        AngularMotionLimited = true;
     }
 
     public void Update()
     {
-        RunSettings();
-        ApplyStrenght();
+        if(UpdateStrenght)
+        {
+            RunSettings();
+            ApplyStrenght();
+        }
     }
 
     public void RunSettings()
@@ -59,16 +57,17 @@ public class JointManager : MonoBehaviour
         foreach (var joint in joints)
         {
             // Try to find a Settings with the same name as joint gameObject
+            Settings boneSettings = null;
             foreach (var b in bones)
             {
                 if (b.Name == joint.gameObject.name)
                 {
-                    settings = b;
+                    boneSettings = b;
                     break;
                 }
             }
 
-            if (settings == null)
+            if (boneSettings == null)
             {
                 Debug.LogWarning("No settings found for joint: " + joint.gameObject.name);
                 continue;
@@ -77,23 +76,29 @@ public class JointManager : MonoBehaviour
             // Apply angular Limits
             if (AngularMotionLimited)
             {
-                //joint.angularXMotion = ConfigurableJointMotion.Limited;
-                //joint.angularYMotion = ConfigurableJointMotion.Limited;
-                //joint.angularZMotion = ConfigurableJointMotion.Limited;
+                joint.angularXMotion = ConfigurableJointMotion.Limited;
+                joint.angularYMotion = ConfigurableJointMotion.Limited;
+                joint.angularZMotion = ConfigurableJointMotion.Limited;
+            }
+            else
+            {
+                joint.angularXMotion = ConfigurableJointMotion.Free;
+                joint.angularYMotion = ConfigurableJointMotion.Free;
+                joint.angularZMotion = ConfigurableJointMotion.Free;
             }
             // Apply twist Limits
             if (twistLimited)
             {
-                SoftJointLimit lowX = new SoftJointLimit { limit = -settings.twistLimit };
-                SoftJointLimit highX = new SoftJointLimit { limit = settings.twistLimit };
+                SoftJointLimit lowX = new SoftJointLimit { limit = -boneSettings.twistLimit };
+                SoftJointLimit highX = new SoftJointLimit { limit = boneSettings.twistLimit };
                 joint.lowAngularXLimit = lowX;
                 joint.highAngularXLimit = highX;
             }
             // Apply swing Limits
             if (swingLimited)
             {
-                SoftJointLimit swingY = new SoftJointLimit { limit = settings.swingLimit };
-                SoftJointLimit swingZ = new SoftJointLimit { limit = settings.swingLimit };
+                SoftJointLimit swingY = new SoftJointLimit { limit = boneSettings.swingLimit };
+                SoftJointLimit swingZ = new SoftJointLimit { limit = boneSettings.swingLimit };
                 joint.angularYLimit = swingY;
                 joint.angularZLimit = swingZ;
             }
@@ -104,18 +109,38 @@ public class JointManager : MonoBehaviour
     {
         foreach (var joint in strenghtJoints)
         {
-            JointDrive drive = new JointDrive();
-            drive.positionSpring = settings.spring * settings.strenghtMultiplier;
-            drive.positionDamper = settings.damper * settings.strenghtMultiplier;
-            drive.maximumForce = maxForce;
+            Settings boneSettings = null;
+            foreach (var b in bones)
+            {
+                if(b.Name == joint.gameObject.name)
+                {
+                    boneSettings = b;
+                    break;
+                }
+            }
 
-            head.upwardForce = headForce * strenghtMultiplier;
-            head.upwardForce = Mathf.Clamp(head.upwardForce, 0, 1000);
+            if (boneSettings == null)
+            {
+                Debug.LogWarning("No settings found for joint (strenght);" + joint.gameObject.name);
+                continue;
+            }
+
+            JointDrive drive = new JointDrive
+            {
+                positionSpring = boneSettings.spring * boneSettings.strenghtMultiplier * strenghtMultiplier,
+                positionDamper = boneSettings.damper * boneSettings.strenghtMultiplier * strenghtMultiplier,
+                maximumForce = maxForce
+            };
 
             joint.slerpDrive = drive;
-
             joint.angularXDrive = drive;
             joint.angularYZDrive = drive;
+        }
+
+        // Apply head upward force once (not per-joint)
+        if (head != null)
+        {
+            head.upwardForce = Mathf.Clamp(headForce * strenghtMultiplier, 0f, 1000f);
         }
     }
 }

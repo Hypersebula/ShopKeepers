@@ -11,9 +11,9 @@ public class RagdollLookAround : MonoBehaviour
     public ConfigurableJoint headBone;
     Quaternion headDown;
     Quaternion headUp;
-    public ConfigurableJoint neckBone;
-    Quaternion neckDown;
-    Quaternion neckUp;
+    //public ConfigurableJoint neckBone;
+    //Quaternion neckDown;
+    //Quaternion neckUp;
     public ConfigurableJoint chestBone;
     Quaternion chestDown;
     Quaternion chestUp;
@@ -27,9 +27,9 @@ public class RagdollLookAround : MonoBehaviour
         headDown = ToJointSpace(headBone, headBase * Quaternion.Euler(90f, 0f, 0f));
         headUp = ToJointSpace(headBone, headBase * Quaternion.Euler(-90f, 0f, 0f));
 
-        Quaternion neckBase = neckBone.transform.localRotation;
-        neckDown = ToJointSpace(neckBone, neckBase * Quaternion.Euler(90f, 0f, 0f));
-        neckUp = ToJointSpace(neckBone, neckBase * Quaternion.Euler(-90f, 0f, 0f));
+        //Quaternion neckBase = neckBone.transform.localRotation;
+        //neckDown = ToJointSpace(neckBone, neckBase * Quaternion.Euler(90f, 0f, 0f));
+        //neckUp = ToJointSpace(neckBone, neckBase * Quaternion.Euler(-90f, 0f, 0f));
 
         Quaternion chestBase = chestBone.transform.localRotation;
         chestDown = ToJointSpace(chestBone, chestBase * Quaternion.Euler(45f, 0f, 0f));
@@ -51,7 +51,7 @@ public class RagdollLookAround : MonoBehaviour
 
         headBone.targetRotation = Quaternion.Slerp(headDown, headUp, t);
 
-        neckBone.targetRotation = Quaternion.Slerp(neckDown, neckUp, t);
+        //neckBone.targetRotation = Quaternion.Slerp(neckDown, neckUp, t);
 
         chestBone.targetRotation = Quaternion.Slerp(chestDown, chestUp, t);
 
