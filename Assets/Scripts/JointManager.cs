@@ -29,7 +29,7 @@ public class JointManager : MonoBehaviour
 
     [Header("Strenght")]
     public float strenghtMultiplier = 1f;
-    public float maxForce = 10000000f;
+    public float maxForce = 10000f;
     public float headForce = 1000f;
 
     private List<ConfigurableJoint> strenghtJoints = new List<ConfigurableJoint>();
@@ -140,7 +140,7 @@ public class JointManager : MonoBehaviour
         // Apply head upward force once (not per-joint)
         if (head != null)
         {
-            head.upwardForce = Mathf.Clamp(headForce * strenghtMultiplier, 0f, 1000f);
+            head.upwardForce = Mathf.Clamp(headForce * strenghtMultiplier, 0f, 100000f);
         }
     }
 }

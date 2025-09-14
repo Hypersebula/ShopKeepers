@@ -15,7 +15,8 @@ public class StrenghtManager : MonoBehaviour
     private bool GetUp = false;
 
     [Header("Strenght")]
-    private float strenght = 1f; // the strenghtMultiplier takes values from here without looping its own
+    public float strenght = 1f; // the strenghtMultiplier takes values from here without looping its own
+    public float globalMultiplier = 1f; // the strenghtMultiplier is locked by update so you can multiply it with this
 
     [Header("Grounding")]
     public float leftImpact; // The amount of strenght taken when feet is not grounded
