@@ -1654,7 +1654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6220427420142257133, guid: 54f1aebcad3b2e946a6206a41a984327, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6396651690996835633, guid: 54f1aebcad3b2e946a6206a41a984327, type: 3}
       propertyPath: maxStamina
@@ -8919,13 +8919,6 @@ MonoBehaviour:
     damper: 10
     twistLimit: 10
     swingLimit: 10
-  settings:
-    Name: 
-    strenghtMultiplier: 1
-    spring: 1000
-    damper: 100
-    twistLimit: 10
-    swingLimit: 10
   head: {fileID: 1122618225534347055}
   AngularMotionLimited: 1
   twistLimited: 1
@@ -9746,9 +9739,8 @@ MonoBehaviour:
   minLook: -90
   maxLook: 90
   currentLook: 0
-  headBone: {fileID: 0}
-  neckBone: {fileID: 0}
-  chestBone: {fileID: 0}
+  headBone: {fileID: 1302058136421191690}
+  chestBone: {fileID: 2155934143533622853}
   spineBone: {fileID: 5524168930047293702}
 --- !u!137 &5608170371520807539
 SkinnedMeshRenderer:
