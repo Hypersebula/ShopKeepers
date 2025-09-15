@@ -55,7 +55,6 @@ public class StrenghtManager : MonoBehaviour
 
         delay = Mathf.Clamp(delay, 0f, 10f);
 
-        // Smoothly Stand Up after being Knocked Out
         knockOutReboot = Mathf.Clamp(knockOutReboot, 0, 1);
 
         if (GetUp)
