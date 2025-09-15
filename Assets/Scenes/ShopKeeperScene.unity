@@ -1654,7 +1654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6220427420142257133, guid: 54f1aebcad3b2e946a6206a41a984327, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6396651690996835633, guid: 54f1aebcad3b2e946a6206a41a984327, type: 3}
       propertyPath: maxStamina
@@ -8857,20 +8857,20 @@ MonoBehaviour:
     strenghtMultiplier: 1
     spring: 1000
     damper: 100
-    twistLimit: 180
-    swingLimit: 180
+    twistLimit: 10
+    swingLimit: 10
   - Name: UpperChest
     strenghtMultiplier: 1
     spring: 1000
     damper: 100
-    twistLimit: 180
-    swingLimit: 180
+    twistLimit: 10
+    swingLimit: 10
   - Name: LowerChest
     strenghtMultiplier: 1
     spring: 1000
     damper: 100
-    twistLimit: 180
-    swingLimit: 180
+    twistLimit: 10
+    swingLimit: 10
   - Name: UpperArm.L
     strenghtMultiplier: 1
     spring: 100
@@ -9737,7 +9737,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257900906604499113}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d88020d9017c74428df6ba3991f57a2, type: 3}
   m_Name: 
@@ -11367,7 +11367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7380056461081706594
 Transform:
   m_ObjectHideFlags: 0
@@ -11407,7 +11407,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
