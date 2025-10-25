@@ -2222,7 +2222,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8528968452908376411, guid: 54f1aebcad3b2e946a6206a41a984327, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -14652,12 +14653,12 @@ GameObject:
   - component: {fileID: 919665049368176162}
   - component: {fileID: 4584801223700213777}
   m_Layer: 0
-  m_Name: AnimatedCharacter
+  m_Name: AnimatedCharacter            ANIMATED
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &5648160041296030470
 GameObject:
   m_ObjectHideFlags: 0
@@ -16371,7 +16372,7 @@ GameObject:
   - component: {fileID: 2802748025623771768}
   - component: {fileID: 2733877821831430365}
   m_Layer: 0
-  m_Name: RagdollCharacter
+  m_Name: RagdollCharacter                RAGDOLL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16625,6 +16626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1985277464289175731}
+  - component: {fileID: 7146008790013492654}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -16632,6 +16634,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &7146008790013492654
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146008790013492653}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 866f666011882354f8818b9da9391ee4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &7152334855372452701
 Transform:
   m_ObjectHideFlags: 0
