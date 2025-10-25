@@ -21,7 +21,7 @@ public class ActiveRagdoll : MonoBehaviour
     {
         for (int i = 0; i < joints.Length; i++)
         {
-            joints[i].targetRotation = animated[i].transform.localRotation;
+            joints[i].SetTargetRotationLocal(animated[i].localRotation, startPos[i]);
         }
     }
 }
