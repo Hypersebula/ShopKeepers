@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FeetGrounding : MonoBehaviour
 {
-    public float checkRadius = 0.2f;
+    public float checkRadius = 0.1f;
     public float castRadius = 0.3f;
     public bool isGrounded;
 
@@ -19,9 +19,9 @@ public class FeetGrounding : MonoBehaviour
             isGrounded ? Color.green : Color.red);
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = isGrounded ? Color.green : Color.red;
-        Gizmos.DrawWireSphere(transform.position, checkRadius);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = isGrounded ? Color.green : Color.red;
+    //    Gizmos.DrawWireSphere(transform.position, checkRadius);
+    //}
 }
