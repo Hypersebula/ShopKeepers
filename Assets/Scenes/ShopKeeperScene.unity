@@ -3137,6 +3137,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccb0682dd7102b4490261783ac52e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hips: {fileID: 8857223921512578650}
+  legSpacing: 0.2
+  stepDistance: 0.4
+  stepHeight: 0.2
+  speed: 4
+  hipOffset: 0.2
+  isStepping: 0
+  otherFeet: {fileID: 1627548213}
 --- !u!1 &905708264
 GameObject:
   m_ObjectHideFlags: 0
@@ -6180,10 +6188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81ac6119298ee84b8cd932c49ff9fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hips: {fileID: 8857223921512578650}
-  leftFoot: {fileID: 1627548213}
-  rightFoot: {fileID: 902586817}
-  stepThreshold: 0.5
 --- !u!1 &1581560554
 GameObject:
   m_ObjectHideFlags: 0
@@ -6386,6 +6390,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccb0682dd7102b4490261783ac52e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hips: {fileID: 8857223921512578650}
+  legSpacing: -0.2
+  stepDistance: 0.4
+  stepHeight: 0.2
+  speed: 4
+  hipOffset: 0.2
+  isStepping: 0
+  otherFeet: {fileID: 902586817}
 --- !u!1 &1632207979
 GameObject:
   m_ObjectHideFlags: 0
@@ -9964,7 +9976,7 @@ Transform:
   m_GameObject: {fileID: 5634821932271056831}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.24380772, y: -1.1098521, z: -0.67481303}
+  m_LocalPosition: {x: -0.24380772, y: -1.215, z: -0.67481303}
   m_LocalScale: {x: 0.6999999, y: 0.7, z: 0.6999999}
   m_ConstrainProportionsScale: 0
   m_Children:
