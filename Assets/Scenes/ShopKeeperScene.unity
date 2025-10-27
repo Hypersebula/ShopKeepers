@@ -1081,7 +1081,7 @@ Transform:
   m_GameObject: {fileID: 379730604}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.00789, z: -0}
+  m_LocalPosition: {x: 0, y: -0.00827, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8337,6 +8337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1610432053747876623}
+  - component: {fileID: 6520521419333087953}
   - component: {fileID: 1477381745441962770}
   - component: {fileID: 6520521419333087952}
   m_Layer: 6
@@ -13127,6 +13128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001722422623261029}
+  - component: {fileID: 6842909183745519337}
   - component: {fileID: 6842909183745519336}
   - component: {fileID: 1333436230151492976}
   m_Layer: 6
@@ -13351,10 +13353,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hips: {fileID: 6206950113740566259}
   legSpacing: 0.2
-  stepDistance: 0.5
-  stepHeight: 0.5
+  stepDistance: 0.6
+  stepHeight: 0.4
   speed: 5
-  hipOffset: 0.3
+  hipOffset: 0.6
   isStepping: 0
   otherFeet: {fileID: 8949853279480650475}
   direction: {x: 0, y: 0, z: 0}
@@ -16649,6 +16651,26 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &6520521419333087953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403377173656818825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4d27fb34bb3c64faa1d9ef0bea75e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placement: {fileID: 4578757956260680707}
+  rb: {fileID: 0}
+  springStiffness: 8000
+  springDamping: 500
+  maxForce: Infinity
+  pinnedPosition: {x: 0, y: 0, z: 0}
+  isPinned: 0
+  lastPlacementState: 0
 --- !u!4 &6544312268870030987
 Transform:
   m_ObjectHideFlags: 0
@@ -17104,6 +17126,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6842909183745519337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256368114399207658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4d27fb34bb3c64faa1d9ef0bea75e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placement: {fileID: 8949853279480650475}
+  rb: {fileID: 0}
+  springStiffness: 8000
+  springDamping: 500
+  maxForce: Infinity
+  pinnedPosition: {x: 0, y: 0, z: 0}
+  isPinned: 0
+  lastPlacementState: 0
 --- !u!1 &6879695266542627555
 GameObject:
   m_ObjectHideFlags: 0
@@ -20607,10 +20649,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hips: {fileID: 6206950113740566259}
   legSpacing: -0.2
-  stepDistance: 0.5
-  stepHeight: 0.5
+  stepDistance: 0.6
+  stepHeight: 0.4
   speed: 5
-  hipOffset: 0.3
+  hipOffset: 0.6
   isStepping: 0
   otherFeet: {fileID: 4578757956260680707}
   direction: {x: 0, y: 0, z: 0}
