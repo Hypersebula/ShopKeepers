@@ -10577,7 +10577,7 @@ Transform:
   m_GameObject: {fileID: 1288273303159673833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.24380772, y: -1.1098521, z: 2.355187}
+  m_LocalPosition: {x: -0.24380772, y: -1.1098521, z: 2.3111868}
   m_LocalScale: {x: 0.6999999, y: 0.7, z: 0.6999999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11953,7 +11953,7 @@ Transform:
   m_GameObject: {fileID: 5727123043829281772}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.24380772, y: -1.119, z: -0.67}
+  m_LocalPosition: {x: -0.24380772, y: -1.119, z: 2.3}
   m_LocalScale: {x: 0.6999999, y: 0.7, z: 0.6999999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13353,7 +13353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hips: {fileID: 6206950113740566259}
   legSpacing: 0.2
-  stepDistance: 0.6
+  stepDistance: 0.75
   stepHeight: 0.4
   speed: 5
   hipOffset: 0.6
@@ -15303,6 +15303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2977695581843056002}
+  - component: {fileID: 6154441282690375580}
   - component: {fileID: 1132304173015600997}
   - component: {fileID: 3450850792160270529}
   - component: {fileID: 6154441282690375579}
@@ -16063,6 +16064,20 @@ MonoBehaviour:
   - m_Rig: {fileID: 1410322728481808144}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &6154441282690375580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727123043829281772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c141245e2fd8f478ef187b5107c36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetHips: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!136 &6159046869294941654
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20649,7 +20664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hips: {fileID: 6206950113740566259}
   legSpacing: -0.2
-  stepDistance: 0.6
+  stepDistance: 0.75
   stepHeight: 0.4
   speed: 5
   hipOffset: 0.6
@@ -21048,7 +21063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9183178546420282921
 Transform:
   m_ObjectHideFlags: 0
