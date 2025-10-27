@@ -22,6 +22,9 @@ public class FootPlacement : MonoBehaviour
 
     [SerializeField] FootPlacement otherFeet;
 
+    private Vector3 lastPosition;
+    public Vector3 direction;
+
     private void Awake()
     {
         layerMask = LayerMask.GetMask("Ground");
@@ -32,13 +35,20 @@ public class FootPlacement : MonoBehaviour
         Ray ray = new Ray(hips.position + (Vector3.right * legSpacing), Vector3.down);
         if (Physics.Raycast(ray, out RaycastHit info, 2, layerMask))
             newPosition = info.point; transform.position = newPosition;
+
+        lastPosition = hips.position;
     }
 
     private void Update()
     {
         transform.position = currentPosition;
 
-        Ray ray = new Ray(hips.position + (hips.right * legSpacing) + (hips.forward * hipOffset), Vector3.down);
+        Vector3 displacement = hips.position - lastPosition;
+        direction = displacement.normalized;
+
+        lastPosition = hips.position;
+
+        Ray ray = new Ray(hips.position + (hips.right * legSpacing) + (direction * hipOffset), Vector3.down);
         if(Physics.Raycast(ray, out RaycastHit info, 2, layerMask))
         {
             if(Vector3.Distance(newPosition, info.point) > stepDistance && !otherFeet.isStepping)
