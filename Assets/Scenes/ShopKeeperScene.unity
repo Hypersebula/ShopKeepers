@@ -2170,6 +2170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
+  horizontalSpeed: 0
 --- !u!1 &575723909
 GameObject:
   m_ObjectHideFlags: 0
@@ -16073,11 +16074,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5727123043829281772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c141245e2fd8f478ef187b5107c36e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a46a411c2e82bb43bbec9a0b1aa1063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetHips: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
+  ragdollHips: {fileID: 8353021960379719778}
+  frequency: 10
+  damping: 1
+  ignoreY: 1
+  verticalResponse: 0
+  smoothness: 1
+  speedTracker: {fileID: 9031808980845266463}
 --- !u!136 &6159046869294941654
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16678,14 +16684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4d27fb34bb3c64faa1d9ef0bea75e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placement: {fileID: 4578757956260680707}
-  rb: {fileID: 0}
-  springStiffness: 8000
-  springDamping: 500
-  maxForce: Infinity
-  pinnedPosition: {x: 0, y: 0, z: 0}
-  isPinned: 0
-  lastPlacementState: 0
 --- !u!4 &6544312268870030987
 Transform:
   m_ObjectHideFlags: 0
@@ -17153,14 +17151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4d27fb34bb3c64faa1d9ef0bea75e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placement: {fileID: 8949853279480650475}
-  rb: {fileID: 0}
-  springStiffness: 8000
-  springDamping: 500
-  maxForce: Infinity
-  pinnedPosition: {x: 0, y: 0, z: 0}
-  isPinned: 0
-  lastPlacementState: 0
 --- !u!1 &6879695266542627555
 GameObject:
   m_ObjectHideFlags: 0
@@ -18474,6 +18464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
+  horizontalSpeed: 0
 --- !u!4 &7575207408781249302
 Transform:
   m_ObjectHideFlags: 0
@@ -20762,6 +20753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8353021960379719778}
+  - component: {fileID: 9031808980845266463}
   - component: {fileID: 4642722323859885558}
   - component: {fileID: 3452989128467043063}
   - component: {fileID: 478096308263247385}
@@ -20772,6 +20764,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9031808980845266463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9031808980845266462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d82a2afc6ce11d4b9562ba07861358a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0
+  horizontalSpeed: 0
 --- !u!1 &9065268838957562611
 GameObject:
   m_ObjectHideFlags: 0
