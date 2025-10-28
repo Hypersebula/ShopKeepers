@@ -11,7 +11,7 @@ public class FootPlacement : MonoBehaviour
     [SerializeField] float legSpacing;
     [SerializeField] float stepDistance;
     [SerializeField] float stepHeight;
-    [SerializeField] float speed;
+    [SerializeField] float stepSpeed;
     [SerializeField] float hipOffset;
 
     float lerp;
@@ -21,6 +21,7 @@ public class FootPlacement : MonoBehaviour
     LayerMask layerMask;
 
     [SerializeField] FootPlacement otherFeet;
+    public SpeedTracker tracker;
 
     private Vector3 lastPosition;
     public Vector3 direction;
@@ -39,7 +40,7 @@ public class FootPlacement : MonoBehaviour
         lastPosition = hips.position;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         transform.position = currentPosition;
 
@@ -47,6 +48,15 @@ public class FootPlacement : MonoBehaviour
         direction = displacement.normalized;
 
         lastPosition = hips.position;
+
+        stepSpeed = tracker.horizontalSpeed * 2.2f;
+        stepSpeed = Mathf.Clamp(stepSpeed, 3f, 15f);
+
+        hipOffset = tracker.horizontalSpeed * 0.25f;
+        hipOffset = Mathf.Clamp(hipOffset, 0.15f, 1.5f);
+
+        stepDistance = tracker.horizontalSpeed * 0.25f;
+        stepDistance = Mathf.Clamp(stepDistance, 0.5f, 0.9f);
 
         Ray ray = new Ray(hips.position + (hips.right * legSpacing) + (direction * hipOffset), Vector3.down);
         if(Physics.Raycast(ray, out RaycastHit info, 2, layerMask))
@@ -65,7 +75,7 @@ public class FootPlacement : MonoBehaviour
             footPosition.y += Mathf.Sin(lerp * Mathf.PI) * stepHeight;
 
             currentPosition = footPosition;
-            lerp += Time.deltaTime * speed;
+            lerp += Time.deltaTime * stepSpeed;
         }
         else
         {

@@ -8547,13 +8547,13 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
-    positionSpring: 5000
+    positionSpring: 10000
     positionDamper: 100
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_AngularYZDrive:
     serializedVersion: 4
-    positionSpring: 5000
+    positionSpring: 10000
     positionDamper: 100
     maximumForce: 3.4028233e+38
     useAcceleration: 0
@@ -13356,10 +13356,11 @@ MonoBehaviour:
   legSpacing: 0.2
   stepDistance: 0.75
   stepHeight: 0.4
-  speed: 5
+  stepSpeed: 0
   hipOffset: 0.6
   isStepping: 0
   otherFeet: {fileID: 8949853279480650475}
+  tracker: {fileID: 9031808980845266463}
   direction: {x: 0, y: 0, z: 0}
 --- !u!4 &4585713807086584002
 Transform:
@@ -14822,13 +14823,13 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
-    positionSpring: 5000
+    positionSpring: 10000
     positionDamper: 100
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_AngularYZDrive:
     serializedVersion: 4
-    positionSpring: 5000
+    positionSpring: 10000
     positionDamper: 100
     maximumForce: 3.4028233e+38
     useAcceleration: 0
@@ -18401,13 +18402,13 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
-    positionSpring: 5000
+    positionSpring: 10000
     positionDamper: 100
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_AngularYZDrive:
     serializedVersion: 4
-    positionSpring: 5000
+    positionSpring: 10000
     positionDamper: 100
     maximumForce: 3.4028233e+38
     useAcceleration: 0
@@ -18605,13 +18606,13 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
-    positionSpring: 5000
+    positionSpring: 10000
     positionDamper: 100
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_AngularYZDrive:
     serializedVersion: 4
-    positionSpring: 5000
+    positionSpring: 10000
     positionDamper: 100
     maximumForce: 3.4028233e+38
     useAcceleration: 0
@@ -20657,10 +20658,11 @@ MonoBehaviour:
   legSpacing: -0.2
   stepDistance: 0.75
   stepHeight: 0.4
-  speed: 5
+  stepSpeed: 0
   hipOffset: 0.6
   isStepping: 0
   otherFeet: {fileID: 4578757956260680707}
+  tracker: {fileID: 9031808980845266463}
   direction: {x: 0, y: 0, z: 0}
 --- !u!114 &8950929151890830292
 MonoBehaviour:
