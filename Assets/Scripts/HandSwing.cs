@@ -10,6 +10,8 @@ public class HandSwing : MonoBehaviour
     public float altitude;
     public float verticalOffset;
     public float swingSpeed;
+    public float swingHeight;
+    public float depth;
 
     [Range(0, 1)] public float maxSwing = 1f;
     [Range(0, 1)] public float minSwing = 0f;
@@ -37,10 +39,11 @@ public class HandSwing : MonoBehaviour
         altitude = Mathf.Clamp(altitude, 0f, 1.5f);
         altitude = Mathf.Round(altitude * 10f) / 10f;
 
-        frontPoint = hips.position + hips.right * spacing + hips.forward * altitude + hips.up * verticalOffset;
-        backPoint = hips.position + hips.right * spacing - hips.forward * altitude + hips.up * verticalOffset;
+        frontPoint = hips.position + hips.right * spacing + hips.forward * altitude + hips.up * verticalOffset + hips.forward * depth;
+        backPoint = hips.position + hips.right * spacing - hips.forward * altitude + hips.up * verticalOffset + hips.forward * depth;
 
         Vector3 handPos = Vector3.Lerp(frontPoint, backPoint, lerp);
+        handPos.y -= Mathf.Sin(lerp * Mathf.PI) * swingHeight;
         lerp = Mathf.Clamp(lerp, minSwing, maxSwing);
 
         transform.position = handPos;

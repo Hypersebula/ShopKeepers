@@ -8322,7 +8322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475388926343281283}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8745532, y: 2.5114284, z: -0.005988735}
   m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
   m_ConstrainProportionsScale: 0
@@ -11954,7 +11954,7 @@ Transform:
   m_GameObject: {fileID: 5727123043829281772}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.24380772, y: -1.119, z: 2.3}
+  m_LocalPosition: {x: -0.24380772, y: -1.119, z: 2.31}
   m_LocalScale: {x: 0.6999999, y: 0.7, z: 0.6999999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12476,8 +12476,8 @@ Transform:
   m_GameObject: {fileID: 4341173338508636634}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.482, y: -0.52, z: -1.136}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.037024, y: 1.8869998, z: -1.136}
+  m_LocalScale: {x: 0.79367685, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6993609412532298521}
@@ -14721,8 +14721,8 @@ Transform:
   m_GameObject: {fileID: 6879695266542627555}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.564, y: -0.59, z: -1.12}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.11902, y: 1.817, z: -1.12}
+  m_LocalScale: {x: 0.79367685, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7359146852019080926}
@@ -15741,7 +15741,7 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 177
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
@@ -15921,7 +15921,7 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 177
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
@@ -19539,8 +19539,10 @@ MonoBehaviour:
   hips: {fileID: 6206950113740566259}
   spacing: -0.4
   altitude: 0.25
-  verticalOffset: 0.2
+  verticalOffset: 0.25
   swingSpeed: 2.5
+  swingHeight: 0.1
+  depth: 0
   maxSwing: 1
   minSwing: 0
   lerp: 1
@@ -19631,8 +19633,10 @@ MonoBehaviour:
   hips: {fileID: 6206950113740566259}
   spacing: 0.4
   altitude: 0.25
-  verticalOffset: 0.2
+  verticalOffset: 0.25
   swingSpeed: 2.5
+  swingHeight: 0.1
+  depth: 0
   maxSwing: 1
   minSwing: 0
   lerp: 0
@@ -20193,7 +20197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5821645845207891971}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.8483046, y: 2.5215714, z: -0.0074177138}
   m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
   m_ConstrainProportionsScale: 0
