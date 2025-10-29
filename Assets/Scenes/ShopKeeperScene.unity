@@ -16417,7 +16417,7 @@ GameObject:
   - component: {fileID: 8068017617220300603}
   - component: {fileID: 8068017617220300604}
   m_Layer: 0
-  m_Name: LeftHandTARGET
+  m_Name: LeftHandTARGET                 .........
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19535,6 +19535,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2836505bc547e4fb23e499b6d505ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tracker: {fileID: 9031808980845266463}
+  hips: {fileID: 6206950113740566259}
+  spacing: -0.4
+  altitude: 0.25
+  verticalOffset: 0.2
+  swingSpeed: 2.5
+  maxSwing: 1
+  minSwing: 0
+  lerp: 1
+  isSwinging: 1
 --- !u!1 &8071099101302927763
 GameObject:
   m_ObjectHideFlags: 0
@@ -19597,13 +19607,36 @@ GameObject:
   m_Component:
   - component: {fileID: 7359146852019080926}
   - component: {fileID: 47208016084496765}
+  - component: {fileID: 8158511066313727992}
   m_Layer: 0
-  m_Name: RightHand-TARGET
+  m_Name: RightHand-TARGET              .........
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8158511066313727992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158511066313727991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2836505bc547e4fb23e499b6d505ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: {fileID: 9031808980845266463}
+  hips: {fileID: 6206950113740566259}
+  spacing: 0.4
+  altitude: 0.25
+  verticalOffset: 0.2
+  swingSpeed: 2.5
+  maxSwing: 1
+  minSwing: 0
+  lerp: 0
+  isSwinging: 0
 --- !u!1 &8195529067692438131
 GameObject:
   m_ObjectHideFlags: 0
