@@ -37,6 +37,12 @@ public class SpringFollower : MonoBehaviour
 
     void FixedUpdate()
     {
+        transform.rotation = Quaternion.Euler(
+            transform.rotation.eulerAngles.x,
+            ragdollHips.rotation.eulerAngles.y,
+            transform.rotation.eulerAngles.z
+        );
+
         if (ragdollHips == null)
             return;
 
