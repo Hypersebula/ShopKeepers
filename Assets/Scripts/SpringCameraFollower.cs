@@ -1,84 +1,57 @@
 using UnityEngine;
 
-/// <summary>
-/// Smoothly follows a ragdoll head using spring-damped motion.
-/// Filters pitch/yaw to prevent flipping, ignores roll, supports axis-specific damping.
-/// </summary>
-[RequireComponent(typeof(Camera))]
 public class SpringCameraFollower : MonoBehaviour
 {
-    [Header("References")]
-    public Transform targetHead;
+    public Transform head;
+    public Transform headTarget;
 
-    [Header("Position Spring")]
-    public float frequency = 8f;
+    Vector3 velocity;
+    Vector3 angularVelocity;
+
+    public float frequency = 6f;
     [Range(0.1f, 2f)] public float damping = 1f;
-    public Vector3 offset = new Vector3(0f, 0.1f, -0.15f);
+    [Range(0f, 2f)] public float smoothness = 1f;
 
-    [Header("Rotation Follow")]
-    [Tooltip("How strongly to follow pitch (X axis).")]
-    [Range(0f, 1f)] public float pitchFollow = 1f;
-
-    [Tooltip("How strongly to follow yaw (Y axis).")]
-    [Range(0f, 1f)] public float yawFollow = 0.5f; // make this looser
-
-    [Tooltip("How quickly to interpolate rotation changes.")]
-    public float rotationLerpSpeed = 8f;
-
-    [Tooltip("Enable for debug lines.")]
-    public bool debugDraw = false;
-
-    private Vector3 velocity;
-    private float smoothedPitch;
-    private float smoothedYaw;
-
-    void LateUpdate()
+    private void LateUpdate()
     {
-        if (!targetHead) return;
+        Vector3 targetPos = head.position;
+        Vector3 currentPos = transform.position;
 
-        // --- POSITION ---
-        Vector3 targetPos = targetHead.TransformPoint(offset);
-        transform.position = SpringTo(transform.position, targetPos, ref velocity, frequency, damping, Time.deltaTime);
+        // Apply spring smoothing
+        transform.position = SpringTo(currentPos, targetPos, ref velocity, frequency, damping, Time.deltaTime * smoothness);
 
-        // --- ROTATION ---
-        Quaternion headRot = targetHead.rotation;
-        Vector3 headEuler = headRot.eulerAngles;
-
-        // Convert to -180..180 range to avoid flipping
-        headEuler.x = NormalizeAngle(headEuler.x);
-        headEuler.y = NormalizeAngle(headEuler.y);
-
-        // Smooth individual axes
-        smoothedPitch = Mathf.LerpAngle(smoothedPitch, headEuler.x, pitchFollow * rotationLerpSpeed * Time.deltaTime);
-        smoothedYaw = Mathf.LerpAngle(smoothedYaw, headEuler.y, yawFollow * rotationLerpSpeed * Time.deltaTime);
-
-        // Apply smoothed rotation, ignore roll
-        Quaternion targetRotation = Quaternion.Euler(smoothedPitch, smoothedYaw, 0f);
-        transform.rotation = targetRotation;
-
-        if (debugDraw)
-        {
-            Debug.DrawLine(transform.position, targetHead.position, Color.yellow);
-            Debug.DrawRay(transform.position, transform.forward * 0.2f, Color.cyan);
-        }
+        //Vector3 cameraPosition = transform.position;
+        //Vector3 targetForward = (headTarget.position - cameraPosition).normalized;
+        //Quaternion targetRot = Quaternion.LookRotation(targetForward, Vector3.right);
+        //transform.rotation = RotateTo(transform.rotation, targetRot, ref angularVelocity, frequency, damping, Time.deltaTime * smoothness);
     }
 
-    // Spring smoothing
-    private Vector3 SpringTo(Vector3 current, Vector3 target, ref Vector3 vel, float freq, float damping, float dt)
+    public static Vector3 SpringTo(Vector3 current, Vector3 target, ref Vector3 velocity, float frequency, float damping, float dt)
     {
-        float f = freq * 2f * Mathf.PI;
+        float f = frequency * 2f * Mathf.PI;
         float g = 1f / (1f + 2f * dt * damping * f + dt * dt * f * f);
         Vector3 diff = current - target;
-        Vector3 accel = (vel + f * f * dt * diff) * (2f * damping * f * dt);
-        vel = (vel - accel) * g;
-        return target + (diff + vel * dt) * g;
+        Vector3 accel = (velocity + f * f * dt * diff) * (2f * damping * f * dt);
+        velocity = (velocity - accel) * g;
+        return target + (diff + velocity * dt) * g;
     }
 
-    // Convert any angle to -180..180
-    private float NormalizeAngle(float angle)
-    {
-        angle %= 360f;
-        if (angle > 180f) angle -= 360f;
-        return angle;
-    }
+    //public static Quaternion RotateTo(Quaternion current, Quaternion target, ref Vector3 angularVelocity, float frequency, float damping, float dt)
+    //{
+    //    // Convert quaternion difference to axis-angle
+    //    Quaternion deltaRot = target * Quaternion.Inverse(current);
+    //    deltaRot.ToAngleAxis(out float angleDeg, out Vector3 axis);
+
+    //    if (angleDeg > 180f) angleDeg -= 360f;  // normalize angle
+
+    //    // Angular acceleration
+    //    float f = frequency * 2f * Mathf.PI;
+    //    float g = 1f / (1f + 2f * dt * damping * f + dt * dt * f * f);
+    //    Vector3 accel = (angularVelocity + f * f * dt * axis * angleDeg * Mathf.Deg2Rad) * (2f * damping * f * dt);
+    //    angularVelocity = (angularVelocity - accel) * g;
+
+    //    // Apply rotation step
+    //    Quaternion step = Quaternion.AngleAxis(angularVelocity.magnitude * dt * Mathf.Rad2Deg, angularVelocity.normalized);
+    //    return step * current;
+    //}
 }
