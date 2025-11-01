@@ -55,7 +55,8 @@ public class SpringFollower : MonoBehaviour
         else if (verticalResponse < 1f)
             targetPos.y = Mathf.Lerp(currentPos.y, targetPos.y, verticalResponse);
 
-        smoothness = (speedTracker.horizontalSpeed * 0.1f);
+        if (speedTracker != null)
+            smoothness = speedTracker.horizontalSpeed * 0.1f;
 
         // Apply spring smoothing
         transform.position = SpringTo(currentPos, targetPos, ref velocity, frequency, damping, Time.fixedDeltaTime * smoothness);
