@@ -5857,7 +5857,7 @@ MonoBehaviour:
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
-  m_LookAt: {fileID: 1919748083}
+  m_LookAt: {fileID: 2084281119}
   m_Follow: {fileID: 137838343}
   m_Lens:
     FieldOfView: 50
@@ -14434,8 +14434,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hips: {fileID: 6206950113740566259}
   legSpacing: 0.2
-  stepDistance: 0.75
-  stepHeight: 0.4
+  stepDistance: 0.6
+  stepHeight: 0.3
   stepSpeed: 0
   hipOffset: 0.6
   isStepping: 0
@@ -16538,6 +16538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2977695581843056002}
+  - component: {fileID: 6154441282690375581}
   - component: {fileID: 6154441282690375580}
   - component: {fileID: 1132304173015600997}
   - component: {fileID: 3450850792160270529}
@@ -17324,6 +17325,21 @@ MonoBehaviour:
   verticalResponse: 0
   smoothness: 1
   speedTracker: {fileID: 9031808980845266463}
+--- !u!114 &6154441282690375581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727123043829281772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acff0a3d211539e4293ed0c9121326b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdollRoot: {fileID: 8353021960379719778}
+  followSpeed: 100000
+  damping: 1
 --- !u!136 &6159046869294941654
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17386,7 +17402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &6200696249566556577
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17417,7 +17433,7 @@ Transform:
   m_GameObject: {fileID: 384096625946738198}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: -0.00166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20963,7 +20979,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288273303159673833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
   m_Name: 
@@ -21923,8 +21939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hips: {fileID: 6206950113740566259}
   legSpacing: -0.2
-  stepDistance: 0.75
-  stepHeight: 0.4
+  stepDistance: 0.6
+  stepHeight: 0.3
   stepSpeed: 0
   hipOffset: 0.6
   isStepping: 0
@@ -22048,6 +22064,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53dd9666526b758459f6a77ee8f1cde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 1.5
+  orientation: {fileID: 1315516973697003784}
+  rb: {fileID: 3452989128467043063}
 --- !u!114 &9031808980845266465
 MonoBehaviour:
   m_ObjectHideFlags: 0
