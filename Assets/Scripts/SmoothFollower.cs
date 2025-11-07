@@ -8,7 +8,7 @@ public class SpringFollower : MonoBehaviour
 {
     [Header("References")]
     [Tooltip("The Transform of the ragdoll's hips to follow.")]
-    public Transform ragdollHips;
+    public Transform Target;
 
     [Header("Tuning")]
     [Tooltip("How quickly the follower moves to the target. Higher = snappier.")]
@@ -20,6 +20,9 @@ public class SpringFollower : MonoBehaviour
 
     [Tooltip("Ignore vertical movement (Y axis). Useful for IK-based characters that handle height separately.")]
     public bool ignoreY = true;
+
+    [Tooltip("Ignore smoothing by speed")]
+    public bool ignoreSpeedSmoothing;
 
     [Tooltip("How strongly to follow vertical movement (0 = off, 1 = full).")]
     [Range(0f, 1f)]
@@ -43,10 +46,10 @@ public class SpringFollower : MonoBehaviour
         //    transform.rotation.eulerAngles.z
         //);
 
-        if (ragdollHips == null)
+        if (Target == null)
             return;
 
-        Vector3 targetPos = ragdollHips.position;
+        Vector3 targetPos = Target.position;
         Vector3 currentPos = transform.position;
 
         // Handle vertical filtering
@@ -55,7 +58,7 @@ public class SpringFollower : MonoBehaviour
         else if (verticalResponse < 1f)
             targetPos.y = Mathf.Lerp(currentPos.y, targetPos.y, verticalResponse);
 
-        if (speedTracker != null)
+        if (speedTracker != null && !ignoreSpeedSmoothing)
             smoothness = speedTracker.horizontalSpeed * 0.1f;
 
         // Apply spring smoothing
