@@ -4,24 +4,17 @@ public class ActiveRagdollMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-
     public Transform orientation;
+    public Rigidbody rb;
 
     float horizontalInput;
     float verticalInput;
-
     Vector3 moveDirection;
-
-    public Rigidbody rb;
-
-    private void Start()
-    {
-        
-    }
 
     private void Update()
     {
-        MyInput();
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
     }
 
     private void FixedUpdate()
@@ -29,17 +22,23 @@ public class ActiveRagdollMovement : MonoBehaviour
         MovePlayer();
     }
 
-    private void MyInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-    }
-
     private void MovePlayer()
     {
-        // calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        Vector3 forward = orientation.forward;
+        Vector3 right = orientation.right;
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 1000f, ForceMode.Force);
+        // zero out up/down
+        forward.y = 0;
+        right.y = 0;
+
+        forward.Normalize();
+        right.Normalize();
+
+        // calculate movement direction
+        moveDirection = (forward * verticalInput + right * horizontalInput).normalized;
+
+        Vector3 targetVelocity = moveDirection * moveSpeed;
+
+        rb.AddForce(targetVelocity, ForceMode.Force);
     }
 }
