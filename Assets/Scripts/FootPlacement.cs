@@ -49,13 +49,13 @@ public class FootPlacement : MonoBehaviour
 
         lastPosition = hips.position;
 
-        stepSpeed = tracker.horizontalSpeed * 3f;
+        stepSpeed = tracker.horizontalSpeed * 1.5f;
         stepSpeed = Mathf.Clamp(stepSpeed, 5f, 20f);
 
         hipOffset = tracker.horizontalSpeed * 0.25f;
         hipOffset = Mathf.Clamp(hipOffset, 0.15f, 1f);
 
-        stepDistance = tracker.horizontalSpeed * 0.25f;
+        stepDistance = tracker.horizontalSpeed * 0.35f;
         stepDistance = Mathf.Clamp(stepDistance, 0.3f, 0.75f);
 
         Ray ray = new Ray(hips.position + (hips.right * legSpacing) + (direction * hipOffset), Vector3.down);
