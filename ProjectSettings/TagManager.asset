@@ -14,9 +14,9 @@ TagManager:
   - UI
   - Interactable
   - HoldLayer
-  - Legs
+  - Ragdoll
   - Stabilizer
-  - 
+  - Capsule
   - 
   - 
   - 
