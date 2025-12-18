@@ -6792,7 +6792,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensX: 100
   sensY: 100
-  orientation: {fileID: 992544642}
+  orientation: {fileID: 1665005469}
+  Capsule: {fileID: 1665005469}
 --- !u!1 &1431495171
 GameObject:
   m_ObjectHideFlags: 0
@@ -25178,7 +25179,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7479679363936691605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cafd689a5183f984494c2e9829965b9c, type: 3}
   m_Name: 
@@ -25201,6 +25202,9 @@ MonoBehaviour:
   Capsule: {fileID: 895779415}
   rb: {fileID: 1197123628130789074}
   followStrenght: 1000
+  CapsuleOrientation: {fileID: 1665005469}
+  hipsTransform: {fileID: 5648518081613418594}
+  joint: {fileID: 3731365356054950447}
 --- !u!4 &7485096582456721906
 Transform:
   m_ObjectHideFlags: 0

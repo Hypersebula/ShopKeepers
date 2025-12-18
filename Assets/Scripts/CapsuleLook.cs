@@ -8,6 +8,7 @@ public class CapsuleLook : MonoBehaviour
     public float sensY;
 
     public Transform orientation;
+    public Transform Capsule;
 
     float xRotation;
     float yRotation;
@@ -20,7 +21,7 @@ public class CapsuleLook : MonoBehaviour
 
     private void Update()
     {
-        // gget mouse input
+        // get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
