@@ -33,20 +33,12 @@ public class CapsuleFollower : MonoBehaviour
 
         rb.AddForce(force, ForceMode.Acceleration);
 
-        //// Rotation
-        //Vector3 capsuleForward = CapsuleOrientation.forward;
-        //capsuleForward.y = 0f;
-        //capsuleForward.Normalize();
+        // Rotation
+        Quaternion capsuleYaw = Quaternion.Euler(CapsuleOrientation.eulerAngles.x, CapsuleOrientation.eulerAngles.y, CapsuleOrientation.eulerAngles.z);
 
-        //Vector3 hipsForward = hipsTransform.forward;
-        //hipsForward.y = 0f;
-        //hipsForward.Normalize();
+        // Convert capsule yaw into joint local space
+        Quaternion targetLocalRotation = Quaternion.Inverse(joint.transform.parent.rotation) * capsuleYaw;
 
-        //float yawError = Vector3.SignedAngle(hipsForward, capsuleForward, Vector3.up);
-
-        //Quaternion yawOffset = Quaternion.Euler(0f, 0f, yawError);
-        //joint.SetTargetRotationLocal(
-        //    yawOffset * startLocalRotation, startLocalRotation
-        //);
+        joint.SetTargetRotationLocal(targetLocalRotation, startLocalRotation);
     }
 }
