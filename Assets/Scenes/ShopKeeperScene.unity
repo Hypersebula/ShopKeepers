@@ -5249,13 +5249,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054851798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.000000119209275, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.011624245, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.009999999, z: 0.009999998}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2132223433}
-  m_Father: {fileID: 6999346793745236348}
+  m_Father: {fileID: 1660364352538253572}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1058704344
 GameObject:
@@ -11057,6 +11057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1660364352538253572}
+  - component: {fileID: 1660364352538253573}
   m_Layer: 0
   m_Name: Hips                                    =====
   m_TagString: Untagged
@@ -14000,8 +14001,30 @@ Transform:
   - {fileID: 2223462635378158689}
   - {fileID: 7026548497708584408}
   - {fileID: 22641953420556755}
+  - {fileID: 1054851799}
   m_Father: {fileID: 8533474650864324589}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1660364352538253573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132322385970186738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a46a411c2e82bb43bbec9a0b1aa1063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 5648518081613418594}
+  frequency: 6
+  damping: 1
+  ignoreY: 0
+  ignoreYaw: 0
+  ignoreSpeedSmoothing: 0
+  verticalResponse: 0
+  smoothness: 1
+  speedTracker: {fileID: 7479679363936691607}
 --- !u!4 &1674654748042679321
 Transform:
   m_ObjectHideFlags: 0
@@ -17292,13 +17315,13 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
-    positionSpring: 10000
+    positionSpring: 100000
     positionDamper: 100
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_AngularYZDrive:
     serializedVersion: 4
-    positionSpring: 10000
+    positionSpring: 100000
     positionDamper: 100
     maximumForce: 3.4028233e+38
     useAcceleration: 0
@@ -22207,6 +22230,7 @@ MonoBehaviour:
   frequency: 10
   damping: 1
   ignoreY: 1
+  ignoreYaw: 0
   ignoreSpeedSmoothing: 0
   verticalResponse: 0
   smoothness: 1
@@ -24082,7 +24106,6 @@ Transform:
   m_Children:
   - {fileID: 8533474650864324589}
   - {fileID: 4617501768045754290}
-  - {fileID: 1054851799}
   m_Father: {fileID: 253748576928012222}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &6999346793745236349
