@@ -58,14 +58,14 @@ public class SpringFollower : MonoBehaviour
         Vector3 targetPos = Target.position;
         Vector3 currentPos = transform.position;
 
-        // Handle vertical filtering
-        if (ignoreY)
-            targetPos.y = currentPos.y;
-        else if (verticalResponse < 1f)
-            targetPos.y = Mathf.Lerp(currentPos.y, targetPos.y, verticalResponse);
+        //// Handle vertical filtering
+        //if (ignoreY)
+        //    targetPos.y = currentPos.y;
+        //else if (verticalResponse < 1f)
+        //    targetPos.y = Mathf.Lerp(currentPos.y, targetPos.y, verticalResponse);
 
         if (speedTracker != null && !ignoreSpeedSmoothing)
-            smoothness = speedTracker.horizontalSpeed * 0.1f;
+            smoothness = speedTracker.Speed * 0.1f;
 
         // Apply spring smoothing
         transform.position = SpringTo(currentPos, targetPos, ref velocity, frequency, damping, Time.fixedDeltaTime * smoothness);

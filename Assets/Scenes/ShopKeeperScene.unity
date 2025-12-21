@@ -2915,7 +2915,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -25224,7 +25224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Capsule: {fileID: 895779415}
   rb: {fileID: 1197123628130789074}
-  followStrenght: 1000
+  followStrenght: 2000
   CapsuleOrientation: {fileID: 1665005469}
   hipsTransform: {fileID: 5648518081613418594}
   joint: {fileID: 3731365356054950447}
