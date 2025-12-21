@@ -11,7 +11,7 @@ public class SpeedTracker : MonoBehaviour
 
     public float smoothFactor = 8f;
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector3 displacement = transform.position - previousPosition;
         currentVelocity = displacement / Time.deltaTime;

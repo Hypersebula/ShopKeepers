@@ -21,6 +21,9 @@ public class SpringFollower : MonoBehaviour
     [Tooltip("Ignore vertical movement (Y axis). Useful for IK-based characters that handle height separately.")]
     public bool ignoreY = true;
 
+    [Tooltip("Ignore horizontal rotation")]
+    public bool ignoreYaw;
+
     [Tooltip("Ignore smoothing by speed")]
     public bool ignoreSpeedSmoothing;
 
@@ -40,14 +43,17 @@ public class SpringFollower : MonoBehaviour
 
     void FixedUpdate()
     {
-        //transform.rotation = Quaternion.Euler(
-        //    transform.rotation.eulerAngles.x,
-        //    ragdollHips.rotation.eulerAngles.y,
-        //    transform.rotation.eulerAngles.z
-        //);
-
         if (Target == null)
             return;
+
+        // Handle plane rotation
+        if (!ignoreYaw)
+        {
+            transform.rotation = Quaternion.Euler(
+            transform.rotation.eulerAngles.x,
+            Target.rotation.eulerAngles.y,
+            transform.rotation.eulerAngles.z);
+        }
 
         Vector3 targetPos = Target.position;
         Vector3 currentPos = transform.position;
