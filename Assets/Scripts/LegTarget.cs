@@ -24,6 +24,8 @@ public class LegTarget : MonoBehaviour
             newPosition = info.point;
         }
 
+        newPosition = hips.InverseTransformPoint(info.point);
+
         currentPosition = newPosition;
     }
 
