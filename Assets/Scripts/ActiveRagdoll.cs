@@ -3,7 +3,13 @@ using System.Collections;
 
 public class ActiveRagdoll : MonoBehaviour
 {
+    [Header("Rotation")]
     public float angularVelocityGain = 50f;
+
+    [Header("Position")]
+    public float positionGain = 800f;
+    public float positionDamping = 50f;
+    public float maxPositionForce = 2000f;
 
     public Transform[] animated;
     public ConfigurableJoint[] joints;
@@ -30,6 +36,7 @@ public class ActiveRagdoll : MonoBehaviour
             Transform target = animated[i];
             Rigidbody body = joint.GetComponent<Rigidbody>();
 
+            // Rotation matching
             joints[i].SetTargetRotationLocal(animated[i].localRotation, startPos[i]);
 
             // Compute angular velocity of animated bone manually
@@ -41,7 +48,22 @@ public class ActiveRagdoll : MonoBehaviour
             Vector3 velError = targetAngularVelocity - body.angularVelocity;
             body.AddTorque(velError * angularVelocityGain, ForceMode.Acceleration);
 
+            // Position matching
             previousRotations[i] = target.localRotation;
+
+            Vector3 positionError =
+                target.position - body.position;
+
+            Vector3 velocityError =
+                -body.linearVelocity;
+
+            Vector3 force =
+                positionError * positionGain +
+                velocityError * positionDamping;
+
+            force = Vector3.ClampMagnitude(force, maxPositionForce);
+
+            body.AddForce(force, ForceMode.Force);
         }
     }
 }

@@ -13,8 +13,20 @@ public class RagdollVerticalLook : MonoBehaviour
 
     private float verticalAngle = 0f; // accumulated rotation
 
+    private float lockedX;
+
+    private void Start()
+    {
+        lockedX = transform.localPosition.x;
+    }
+
     private void LateUpdate()
     {
+        // Lock the x position
+        Vector3 l = transform.localPosition;
+        l.x = lockedX;
+        transform.localPosition = l;
+
         float mouseY = Input.GetAxisRaw("Mouse Y") * sensitivity * Time.deltaTime;
 
         // accumulate rotation and clamp

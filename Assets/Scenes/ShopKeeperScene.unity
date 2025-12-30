@@ -23700,6 +23700,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angularVelocityGain: 50
+  positionGain: 800
+  positionDamping: 50
+  maxPositionForce: 2000
   animated:
   - {fileID: 3027839331073826899}
   - {fileID: 8648966507404403641}
@@ -27052,6 +27055,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angularVelocityGain: 50
+  positionGain: 800
+  positionDamping: 50
+  maxPositionForce: 2000
   animated:
   - {fileID: 9068774993240916805}
   - {fileID: 6491490615841611921}

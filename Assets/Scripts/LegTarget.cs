@@ -18,7 +18,7 @@ public class LegTarget : MonoBehaviour
     {
         transform.position = currentPosition; // Match the position to the moving target
 
-        Ray ray = new Ray(hips.position + (hips.right * legSpacing), -hips.up);
+        Ray ray = new Ray(hips.position + (hips.right * legSpacing), -Vector3.up);
         if (Physics.Raycast(ray, out RaycastHit info, 2, Ground))
         {
             newPosition = info.point;
