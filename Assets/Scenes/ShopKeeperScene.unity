@@ -2434,7 +2434,22 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 8
+  rb: {fileID: 1665005470}
+  otherFeet: {fileID: 1074890943}
+  tracker: {fileID: 1665005471}
   legSpacing: 0.25
+  stepDistance: 0.7
+  minStepDistance: 0.2
+  maxStepDistance: 1
+  stepHeight: 0.25
+  stepSpeed: 5
+  minStepSpeed: 3
+  maxStepSpeed: 5
+  dirSpacing: 0.5
+  minDirSpacing: 0
+  maxDirSpacing: 0.5
+  tweakSpeed: 5
+  isStepping: 1
 --- !u!1 &476924462
 GameObject:
   m_ObjectHideFlags: 0
@@ -5466,7 +5481,22 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 8
+  rb: {fileID: 1665005470}
+  otherFeet: {fileID: 476697213}
+  tracker: {fileID: 1665005471}
   legSpacing: -0.25
+  stepDistance: 0.7
+  minStepDistance: 0.2
+  maxStepDistance: 1
+  stepHeight: 0.25
+  stepSpeed: 5
+  minStepSpeed: 3
+  maxStepSpeed: 5
+  dirSpacing: 0.5
+  minDirSpacing: 0
+  maxDirSpacing: 0.5
+  tweakSpeed: 5
+  isStepping: 0
 --- !u!1 &1083690259
 GameObject:
   m_ObjectHideFlags: 0
@@ -7878,7 +7908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55c706e1ba472141aec68cac7169639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
   groundDrag: 5
   jumpForce: 12
   airMultiplier: 0.2
