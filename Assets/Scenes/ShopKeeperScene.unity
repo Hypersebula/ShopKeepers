@@ -2440,7 +2440,7 @@ MonoBehaviour:
   legSpacing: 0.25
   stepDistance: 0.7
   minStepDistance: 0.2
-  maxStepDistance: 1.1
+  maxStepDistance: 0.8
   stepHeight: 0.3
   stepSpeed: 5
   minStepSpeed: 3
@@ -5487,7 +5487,7 @@ MonoBehaviour:
   legSpacing: -0.25
   stepDistance: 0.7
   minStepDistance: 0.2
-  maxStepDistance: 1.1
+  maxStepDistance: 0.8
   stepHeight: 0.3
   stepSpeed: 5
   minStepSpeed: 3

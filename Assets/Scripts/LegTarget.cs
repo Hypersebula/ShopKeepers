@@ -49,7 +49,7 @@ public class LegTarget : MonoBehaviour
         stepDistance = Mathf.Clamp(stepDistance, minStepDistance, maxStepDistance);
         dirSpacing = Mathf.Clamp(dirSpacing, minDirSpacing, maxDirSpacing);
 
-        if (tracker.Speed > 0.1f)
+        if (tracker.Speed > 0.25f)
         {
             stepSpeed = stepSpeed + Time.deltaTime * tweakSpeed;
             stepDistance = stepDistance + Time.deltaTime * tweakSpeed;
