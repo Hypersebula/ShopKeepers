@@ -61,7 +61,7 @@ Material:
     - _Float: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SeeThroDistance: -0.59
+    - _SeeThroDistance: -1.08
     m_Colors:
     - _Color: {r: 0.042452812, g: 0.6620165, b: 1, a: 0}
   m_BuildTextureStacks: []
