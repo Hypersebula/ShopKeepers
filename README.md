@@ -1,1 +1,3 @@
-This Active Ragdoll Controller is my project I am working on as a part of "Závěrečná Práce" in my school. It is not yet done and still in progress. 
+Tento projekt byl vytvořen v létě 2025, ale účel Active Ragdoll Controlleru získal až pozdějí.
+Celkově obsahuje 54 "branches".
+Repozitář slouží primárně k verzování a archivace vývoje.
