@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LookAround : MonoBehaviour
+public class LookAroundOld : MonoBehaviour
 {
     [Header("References")]
     public Transform playerRoot; // After Clamp Rotation
