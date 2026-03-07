@@ -14712,12 +14712,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5849886390699433372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.023
+  m_Weight: 0
   m_Data:
     m_Root: {fileID: 2434515350647773648}
     m_Mid: {fileID: 747955333734220921}
@@ -22057,6 +22057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4526591258402176174}
   - component: {fileID: 1834423041115909075}
+  - component: {fileID: 5849886390699433373}
   m_Layer: 0
   m_Name: SpineLook
   m_TagString: Untagged
@@ -22064,6 +22065,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5849886390699433373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849886390699433372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b75e345bd64d47a31edd757bd2670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Weight: 0.25
+  m_Data:
+    m_Root: {fileID: 2434515350647773648}
+    m_Tip: {fileID: 3027839331073826899}
+    m_Target: {fileID: 7692020031624627281}
+    m_ChainRotationWeight: 1
+    m_TipRotationWeight: 1
+    m_MaxIterations: 15
+    m_Tolerance: 0.0001
+    m_MaintainTargetPositionOffset: 0
+    m_MaintainTargetRotationOffset: 0
 --- !u!1 &5853126930192632466
 GameObject:
   m_ObjectHideFlags: 0
@@ -27069,7 +27093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hips: {fileID: 2626237309200975760}
   pointHeight: 1.75
-  curveHeight: 2
+  curveHeight: 1
   altitude: 2.37
   sensitivity: 135
   verticalLimit: 80
