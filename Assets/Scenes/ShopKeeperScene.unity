@@ -119,6 +119,73 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7280959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7280960}
+  - component: {fileID: 7280961}
+  - component: {fileID: 7280962}
+  m_Layer: 10
+  m_Name: CameraPosFollower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7280960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280959}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.99300003, z: 0.093}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1228622255}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7280961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a46a411c2e82bb43bbec9a0b1aa1063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1353514714}
+  frequency: 10
+  damping: 2
+  ignoreY: 1
+  ignoreYaw: 0
+  ignoreSpeedSmoothing: 0
+  verticalResponse: 1
+  smoothness: 1
+  speedTracker: {fileID: 1228622250}
+--- !u!114 &7280962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f231bd4d94bb34ea3a12f418d164c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1353514714}
 --- !u!1 &8673174
 GameObject:
   m_ObjectHideFlags: 0
@@ -6332,10 +6399,10 @@ MonoBehaviour:
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
-  m_LookAt: {fileID: 1543200565}
-  m_Follow: {fileID: 1543200565}
+  m_LookAt: {fileID: 1353514714}
+  m_Follow: {fileID: 1353514714}
   m_Lens:
-    FieldOfView: 70
+    FieldOfView: 75
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -6374,8 +6441,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192882801}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000006322027, y: 0.70710677, z: 0.000000063220284, w: 0.7071069}
-  m_LocalPosition: {x: 0.06999993, y: 0.9789976, z: -2.88}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.99300003, z: 0.093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6769,6 +6836,7 @@ Transform:
   - {fileID: 667877942}
   - {fileID: 1667316100}
   - {fileID: 1967031252}
+  - {fileID: 7280960}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1228622256
@@ -10231,7 +10299,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 70
+  field of view: 75
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -10289,8 +10357,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821872336}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000006322027, y: 0.70710677, z: 0.000000063220284, w: 0.7071069}
-  m_LocalPosition: {x: 0.06999993, y: 0.9789976, z: -2.88}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.99300003, z: 0.093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19840,7 +19908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &4255816740067148405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20114,7 +20182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &4525081812154308094
 GameObject:
   m_ObjectHideFlags: 0
@@ -28645,7 +28713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 1000620476}
-  frequency: 6
+  frequency: 100
   damping: 1
   ignoreY: 0
   ignoreYaw: 0
