@@ -172,6 +172,7 @@ MonoBehaviour:
   ignoreSpeedSmoothing: 0
   verticalResponse: 1
   smoothness: 1
+  speedSmoothnessScale: 0.1
   speedTracker: {fileID: 1228622250}
 --- !u!114 &7280962
 MonoBehaviour:
@@ -372,7 +373,7 @@ GameObject:
   - component: {fileID: 76717466}
   m_Layer: 3
   m_Name: Obstacle (10)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -480,7 +481,7 @@ GameObject:
   - component: {fileID: 77717050}
   m_Layer: 3
   m_Name: Obstacle (17)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1330,7 +1331,7 @@ GameObject:
   - component: {fileID: 281627514}
   m_Layer: 3
   m_Name: Obstacle (24)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2201,7 +2202,7 @@ GameObject:
   - component: {fileID: 439027666}
   m_Layer: 3
   m_Name: Obstacle (11)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2389,7 +2390,7 @@ GameObject:
   - component: {fileID: 444890901}
   m_Layer: 3
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2524,7 +2525,7 @@ GameObject:
   - component: {fileID: 459676937}
   m_Layer: 3
   m_Name: Obstacle (6)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3013,7 +3014,7 @@ GameObject:
   - component: {fileID: 538606144}
   m_Layer: 3
   m_Name: Obstacle (20)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3979,7 +3980,7 @@ GameObject:
   - component: {fileID: 808214192}
   m_Layer: 3
   m_Name: Obstacle (25)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4318,7 +4319,7 @@ GameObject:
   - component: {fileID: 897404958}
   m_Layer: 3
   m_Name: Obstacle (14)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4426,7 +4427,7 @@ GameObject:
   - component: {fileID: 905708266}
   m_Layer: 3
   m_Name: Obstacle (13)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4534,7 +4535,7 @@ GameObject:
   - component: {fileID: 916568286}
   m_Layer: 3
   m_Name: Obstacle (5)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4812,7 +4813,7 @@ GameObject:
   - component: {fileID: 929408347}
   m_Layer: 3
   m_Name: Obstacle (22)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5344,7 +5345,7 @@ GameObject:
   - component: {fileID: 978280261}
   m_Layer: 3
   m_Name: Obstacle (15)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5472,7 +5473,7 @@ GameObject:
   - component: {fileID: 988460234}
   m_Layer: 3
   m_Name: Obstacle (21)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5783,7 +5784,7 @@ GameObject:
   - component: {fileID: 1031474674}
   m_Layer: 3
   m_Name: -----------TestMap------------------------------------------------
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5876,7 +5877,7 @@ GameObject:
   - component: {fileID: 1043345996}
   m_Layer: 3
   m_Name: Obstacle (7)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6378,7 +6379,7 @@ GameObject:
   - component: {fileID: 1178933001}
   m_Layer: 3
   m_Name: Obstacle (18)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7279,7 +7280,7 @@ GameObject:
   - component: {fileID: 1297487398}
   m_Layer: 3
   m_Name: Obstacle (1)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7767,7 +7768,7 @@ GameObject:
   - component: {fileID: 1392318948}
   m_Layer: 3
   m_Name: Obstacle (9)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8577,7 +8578,7 @@ GameObject:
   - component: {fileID: 1539421437}
   m_Layer: 3
   m_Name: Obstacle (4)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9177,7 +9178,7 @@ GameObject:
   - component: {fileID: 1632207984}
   m_Layer: 3
   m_Name: Obstacle (3)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9359,7 +9360,7 @@ GameObject:
   - component: {fileID: 1658522145}
   m_Layer: 3
   m_Name: Obstacle (12)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10184,7 +10185,7 @@ GameObject:
   - component: {fileID: 1730057601}
   m_Layer: 3
   m_Name: ground
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10325,7 +10326,7 @@ GameObject:
   - component: {fileID: 1744298969}
   m_Layer: 3
   m_Name: Obstacle (23)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10623,7 +10624,7 @@ GameObject:
   - component: {fileID: 1767856597}
   m_Layer: 3
   m_Name: Obstacle (8)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11138,7 +11139,7 @@ GameObject:
   - component: {fileID: 1831706897}
   m_Layer: 3
   m_Name: Obstacle (16)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11473,7 +11474,7 @@ GameObject:
   - component: {fileID: 1925957717}
   m_Layer: 3
   m_Name: Obstacle (2)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11774,7 +11775,7 @@ GameObject:
   - component: {fileID: 1971891371}
   m_Layer: 3
   m_Name: Obstacle (19)
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15373,7 +15374,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &1205309598207193891
@@ -15491,6 +15492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8519966681434390672}
+  - component: {fileID: 8519966681434390673}
   - component: {fileID: 6931148385029275016}
   - component: {fileID: 7826070168631415074}
   - component: {fileID: 776220541594197934}
@@ -16541,6 +16543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8792497571726692566}
+  - component: {fileID: 8792497571726692567}
   - component: {fileID: 8650078421997648033}
   - component: {fileID: 4099425512485764057}
   - component: {fileID: 4738978683118370579}
@@ -17698,7 +17701,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &2179191321053763924
@@ -19030,7 +19033,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &3057270708584850250
@@ -19136,7 +19139,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!4 &3100350617392705289
@@ -19318,7 +19321,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!136 &3330705945942750611
@@ -20173,7 +20176,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!4 &3776016331793409702
@@ -20628,7 +20631,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!136 &4099425512485764057
@@ -21073,7 +21076,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!54 &4509546553211662972
@@ -21306,7 +21309,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!135 &4621426227279773917
@@ -24731,7 +24734,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!4 &6044764459184402356
@@ -25073,6 +25076,7 @@ MonoBehaviour:
   ignoreSpeedSmoothing: 0
   verticalResponse: 0
   smoothness: 1
+  speedSmoothnessScale: 0.1
   speedTracker: {fileID: 9031808980845266463}
 --- !u!114 &6154441282690375581
 MonoBehaviour:
@@ -28355,7 +28359,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &7681741106733535789
@@ -29202,7 +29206,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &7830829352593850883
@@ -29678,10 +29682,11 @@ MonoBehaviour:
   damping: 1
   ignoreY: 0
   ignoreYaw: 0
-  ignoreSpeedSmoothing: 0
+  ignoreSpeedSmoothing: 1
   verticalResponse: 0
   smoothness: 1
-  speedTracker: {fileID: 7479679363936691607}
+  speedSmoothnessScale: 0.1
+  speedTracker: {fileID: 1228622250}
 --- !u!1 &8087834287434746642
 GameObject:
   m_ObjectHideFlags: 0
@@ -30286,6 +30291,20 @@ Transform:
   - {fileID: 8753718541725983351}
   m_Father: {fileID: 504624390736281757}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8519966681434390673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273583308665933275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159a76ddfee5d7b49af664009c754dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabController: {fileID: 1902517943}
+  grabbableTag: Grabbable
 --- !u!114 &8533838151844079259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30643,7 +30662,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!137 &8676145433560755837
@@ -30817,6 +30836,20 @@ Transform:
   - {fileID: 3444314807542531367}
   m_Father: {fileID: 982210448469902406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8792497571726692567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615135779487638079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159a76ddfee5d7b49af664009c754dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabController: {fileID: 1606357563}
+  grabbableTag: Grabbable
 --- !u!81 &8798971336648399238
 AudioListener:
   m_ObjectHideFlags: 0
@@ -31295,7 +31328,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &8984553261806781047
@@ -31888,7 +31921,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!4 &9183178546420282921

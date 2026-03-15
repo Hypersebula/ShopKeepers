@@ -59,6 +59,11 @@ public class Grabbing : MonoBehaviour
         }
     }
 
+    public void OnHandContact(Rigidbody hitRb, Vector3 constactPoint)
+    {
+        if (reachAmount < 0.9f) return;
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (!drawGizmos || cam == null || shoulder == null || aimer == null) return;
