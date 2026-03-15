@@ -96,7 +96,7 @@ public class CapsuleMovement : MonoBehaviour
     private void Jump()
     {
         // reset y velocity
-        rb.angularVelocity = new Vector3(rb.angularVelocity.x, 0f, rb.angularVelocity.z);
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }

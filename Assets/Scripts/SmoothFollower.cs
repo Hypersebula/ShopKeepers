@@ -35,6 +35,10 @@ public class SpringFollower : MonoBehaviour
     [Range(0f, 2f)]
     public float smoothness = 1.0f;
 
+    [Tooltip("How much speed contributes to extra smoothness on top of the base.")]
+    [Range(0f, 1f)]
+    public float speedSmoothnessScale = 0.1f;
+
     [Header("Optional External Inputs")]
     [Tooltip("Optional SpeedTracker reference for adaptive smoothing.")]
     public SpeedTracker speedTracker;
@@ -64,11 +68,12 @@ public class SpringFollower : MonoBehaviour
         //else if (verticalResponse < 1f)
         //    targetPos.y = Mathf.Lerp(currentPos.y, targetPos.y, verticalResponse);
 
+        float effectiveSmoothness = smoothness;
         if (speedTracker != null && !ignoreSpeedSmoothing)
-            smoothness = speedTracker.Speed * 0.1f;
+            effectiveSmoothness += speedTracker.Speed * speedSmoothnessScale;
 
         // Apply spring smoothing
-        transform.position = SpringTo(currentPos, targetPos, ref velocity, frequency, damping, Time.fixedDeltaTime * smoothness);
+        transform.position = SpringTo(currentPos, targetPos, ref velocity, frequency, damping, Time.fixedDeltaTime * speedSmoothnessScale);
     }
 
     /// <summary>
