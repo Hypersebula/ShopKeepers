@@ -600,7 +600,7 @@ Transform:
   m_GameObject: {fileID: 83360667}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.00102, z: 0.00065}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1450,7 +1450,7 @@ Transform:
   m_GameObject: {fileID: 286513940}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.00102, z: 0.00065}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5875,6 +5875,7 @@ GameObject:
   - component: {fileID: 1043345998}
   - component: {fileID: 1043345997}
   - component: {fileID: 1043345996}
+  - component: {fileID: 1043345999}
   m_Layer: 3
   m_Name: Obstacle (7)
   m_TagString: Grabbable
@@ -5971,6 +5972,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043345994}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1043345999
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043345994}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1058425480
 GameObject:
   m_ObjectHideFlags: 0
@@ -9163,6 +9191,8 @@ MonoBehaviour:
   ikTargetHome: {fileID: 1632994913}
   grabKey: 323
   reachSpeed: 5
+  handRigidbody: {fileID: 8650078421997648033}
+  handContact: {fileID: 8792497571726692567}
 --- !u!1 &1632207979
 GameObject:
   m_ObjectHideFlags: 0
@@ -11379,6 +11409,8 @@ MonoBehaviour:
   ikTargetHome: {fileID: 2050350702}
   grabKey: 324
   reachSpeed: 5
+  handRigidbody: {fileID: 7826070168631415074}
+  handContact: {fileID: 8519966681434390673}
 --- !u!1 &1911220645
 GameObject:
   m_ObjectHideFlags: 0
@@ -28624,7 +28656,7 @@ ConfigurableJoint:
   m_ConnectedBody: {fileID: 3057063410331631684}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   m_SecondaryAxis: {x: 6, y: 1, z: 0}
@@ -30305,6 +30337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabController: {fileID: 1902517943}
   grabbableTag: Grabbable
+  active: 0
 --- !u!114 &8533838151844079259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30850,6 +30883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabController: {fileID: 1606357563}
   grabbableTag: Grabbable
+  active: 0
 --- !u!81 &8798971336648399238
 AudioListener:
   m_ObjectHideFlags: 0

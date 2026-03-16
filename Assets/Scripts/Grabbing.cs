@@ -28,6 +28,11 @@ public class Grabbing : MonoBehaviour
 
     private float reachAmount = 0f;
 
+    public Rigidbody handRigidbody;
+    private ConfigurableJoint grabJoint;
+
+    public HandContact handContact;
+
     private void Update()
     {
         UpdateReachGoal();
@@ -36,6 +41,19 @@ public class Grabbing : MonoBehaviour
         reachAmount = Mathf.MoveTowards(reachAmount, target, Time.deltaTime * reachSpeed);
 
         ikTarget.position = Vector3.Lerp(ikTargetHome.position, reachGoal, reachAmount);
+
+        if (Input.GetKeyDown(grabKey))
+            handContact.active = true;
+
+        if (Input.GetKeyUp(grabKey) && grabJoint != null)
+        {
+            handContact.active = false;
+            if(grabJoint != null) 
+            {
+                Destroy(grabJoint);
+                grabJoint = null;
+            }
+        }
     }
 
     private Ray GetGrabRay()
@@ -62,6 +80,21 @@ public class Grabbing : MonoBehaviour
     public void OnHandContact(Rigidbody hitRb, Vector3 constactPoint)
     {
         if (reachAmount < 0.9f) return;
+        if (hitRb == null) return;
+        if (grabJoint != null) return;
+
+        grabJoint = handRigidbody.gameObject.AddComponent<ConfigurableJoint>();
+        grabJoint.connectedBody = hitRb;
+        grabJoint.xMotion = ConfigurableJointMotion.Locked;
+        grabJoint.yMotion = ConfigurableJointMotion.Locked;
+        grabJoint.zMotion = ConfigurableJointMotion.Locked;
+        grabJoint.angularXMotion = ConfigurableJointMotion.Locked;
+        grabJoint.angularYMotion = ConfigurableJointMotion.Locked;
+        grabJoint.angularZMotion = ConfigurableJointMotion.Locked;
+        grabJoint.breakForce = Mathf.Infinity;
+        grabJoint.breakTorque = Mathf.Infinity;
+
+        Debug.Log("Grabbed: " + hitRb.gameObject.name);
     }
 
     private void OnDrawGizmosSelected()
