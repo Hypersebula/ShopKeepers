@@ -20,6 +20,10 @@ public class CapsuleMovement : MonoBehaviour
     public LayerMask whatIsGround;
     bool grounded;
 
+    [Header("Ragdoll Authority")]
+    public Rigidbody ragdollHips;
+    public bool ragdollDriving = false;
+
     public Transform orientation;
 
     float horizontalInput;
@@ -52,6 +56,12 @@ public class CapsuleMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (ragdollDriving)
+        {
+            rb.MovePosition(ragdollHips.position);
+            return;
+        }
+
         MovePlayer();
     }
 
