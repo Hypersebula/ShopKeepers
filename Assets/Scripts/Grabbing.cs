@@ -33,6 +33,9 @@ public class Grabbing : MonoBehaviour
 
     public HandContact handContact;
 
+    public bool IsGrabbing { get; private set; }
+    public Vector3 GrabPoint { get; private set; }
+
     private void Update()
     {
         UpdateReachGoal();
@@ -52,6 +55,8 @@ public class Grabbing : MonoBehaviour
             {
                 Destroy(grabJoint);
                 grabJoint = null;
+                IsGrabbing = false;
+                GrabPoint = Vector3.zero;
             }
         }
     }
@@ -77,11 +82,14 @@ public class Grabbing : MonoBehaviour
         }
     }
 
-    public void OnHandContact(Rigidbody hitRb, Vector3 constactPoint)
+    public void OnHandContact(Rigidbody hitRb, Vector3 contactPoint)
     {
         if (reachAmount < 0.9f) return;
         if (hitRb == null) return;
         if (grabJoint != null) return;
+
+        GrabPoint = contactPoint;
+        IsGrabbing = true;
 
         grabJoint = handRigidbody.gameObject.AddComponent<ConfigurableJoint>();
         grabJoint.connectedBody = hitRb;

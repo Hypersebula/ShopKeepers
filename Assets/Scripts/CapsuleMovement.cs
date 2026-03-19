@@ -24,6 +24,11 @@ public class CapsuleMovement : MonoBehaviour
     public Rigidbody ragdollHips;
     public bool ragdollDriving = false;
 
+    [Header("Grab Constraint")]
+    public Grabbing leftHand;
+    public Grabbing rightHand;
+    public float maxGrabDistance = 1.5f;
+
     public Transform orientation;
 
     float horizontalInput;
@@ -89,6 +94,17 @@ public class CapsuleMovement : MonoBehaviour
         // in air
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+    }
+
+    private void ApplyGrabConstaint()
+    {
+        ConstraintToHand(leftHand);
+        ConstraintToHand(rightHand);
+    }
+
+    private void ConstraintToHand(Grabbing hand)
+    {
+       
     }
 
     private void SpeedControl()
