@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class CapsuleMovement : MonoBehaviour
 {
-    [Header("Movement")]
-    public float moveSpeed;
-
     public float groundDrag;
 
     public float jumpForce;
@@ -28,6 +25,16 @@ public class CapsuleMovement : MonoBehaviour
     public Grabbing leftHand;
     public Grabbing rightHand;
     public float maxGrabDistance = 1.5f;
+
+    [Header("Sprinting")]
+    private float moveSpeed;
+    public float walkSpeed = 3f;
+    public float sprintSpeed = 6f;
+    public KeyCode sprintKey = KeyCode.LeftShift;
+
+    [Header("Leg IK")]
+    public LegTarget leftLeg;
+    public LegTarget rightLeg;
 
     public Transform orientation;
 
@@ -68,6 +75,7 @@ public class CapsuleMovement : MonoBehaviour
         }
 
         MovePlayer();
+        SpeedControl();
     }
 
     private void MyInput()
@@ -75,11 +83,18 @@ public class CapsuleMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        // when to jump
+        if (Input.GetKey(sprintKey))
+            moveSpeed = sprintSpeed;
+        else
+            moveSpeed = walkSpeed;
+
         if (Input.GetKeyDown(jumpKey) && grounded)
-        {
             Jump();
-        }
+
+        bool sprinting = Input.GetKey(sprintKey);
+        moveSpeed = sprinting ? sprintSpeed : walkSpeed;
+        leftLeg.isSprinting = sprinting;
+        rightLeg.isSprinting = sprinting;
     }
 
     private void MovePlayer()
@@ -109,13 +124,13 @@ public class CapsuleMovement : MonoBehaviour
 
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.angularVelocity.x, 0f, rb.angularVelocity.z);
+        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         // limit velocity if needed
         if(flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.angularVelocity = new Vector3(limitedVel.x, rb.angularVelocity.y, limitedVel.z);
+            rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
         }
     }
 

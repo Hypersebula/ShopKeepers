@@ -14,27 +14,41 @@ public class LegTarget : MonoBehaviour
     public LegTarget otherFeet;
     public SpeedTracker tracker;
 
-    [Header("Values")]
+    [Header("LegSpacing")]
     public float legSpacing = 0.25f;
 
+    [Header("Step Distance")]
     public float stepDistance = 0.5f;
     public float minStepDistance = 0.1f;
     public float maxStepDistance = 0.75f;
 
+    [Header("Step Hight")]
     [Range(0, 1)] float lerp;
     public float stepHeight = 0.25f;
 
+    [Header("Step Speed")]
     public float stepSpeed = 1f;
     public float minStepSpeed = 2f;
     public float maxStepSpeed = 5f;
 
+    [Header("Direction Spacing")]
     public float dirSpacing;
     public float minDirSpacing;
     public float maxDirSpacing;
 
     public float tweakSpeed = 2f;
-
     public bool isStepping = false;
+
+    [Header("Normal Values")]
+    public float normalMaxStepDistance = 0.9f;
+    public float normalMaxStepSpeed = 5f;
+    public float normalMaxDirSpacing = 0.3f;
+
+    [Header("Sprint Values")]
+    public float sprintMaxStepDistance = 1.5f;
+    public float sprintMaxStepSpeed = 10f;
+    public float sprintMaxDirSpacing = 0.5f;
+    public bool isSprinting = false;
 
     Vector3 constantPosition;
     Vector3 newPosition;
@@ -44,6 +58,10 @@ public class LegTarget : MonoBehaviour
     private void LateUpdate()
     {
         transform.position = currentPosition; // Match the position to the moving target
+
+        maxStepDistance = isSprinting ? sprintMaxStepDistance : normalMaxStepDistance;
+        maxStepSpeed = isSprinting ? sprintMaxStepSpeed : normalMaxStepSpeed;
+        maxDirSpacing = isSprinting ? sprintMaxDirSpacing : normalMaxDirSpacing;
 
         stepSpeed = Mathf.Clamp(stepSpeed, minStepSpeed, maxStepSpeed);
         stepDistance = Mathf.Clamp(stepDistance, minStepDistance, maxStepDistance);
