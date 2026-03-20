@@ -16194,6 +16194,7 @@ MonoBehaviour:
   stepDistance: 0.7
   minStepDistance: 0.2
   maxStepDistance: 0.9
+  lerp: 0
   stepHeight: 0.25
   stepSpeed: 5
   minStepSpeed: 3
@@ -16205,10 +16206,10 @@ MonoBehaviour:
   isStepping: 0
   normalMaxStepDistance: 0.75
   normalMaxStepSpeed: 5
-  normalMaxDirSpacing: 0.3
+  normalMaxDirSpacing: 0.5
   sprintMaxStepDistance: 1.5
-  sprintMaxStepSpeed: 10
-  sprintMaxDirSpacing: 0.9
+  sprintMaxStepSpeed: 9
+  sprintMaxDirSpacing: 1.1
   isSprinting: 0
 --- !u!4 &2647885137633873174
 Transform:
@@ -25204,6 +25205,7 @@ MonoBehaviour:
   stepDistance: 0.7
   minStepDistance: 0.2
   maxStepDistance: 0.9
+  lerp: 0
   stepHeight: 0.25
   stepSpeed: 5
   minStepSpeed: 3
@@ -25215,10 +25217,10 @@ MonoBehaviour:
   isStepping: 1
   normalMaxStepDistance: 0.75
   normalMaxStepSpeed: 5
-  normalMaxDirSpacing: 0.3
+  normalMaxDirSpacing: 0.5
   sprintMaxStepDistance: 1.5
-  sprintMaxStepSpeed: 10
-  sprintMaxDirSpacing: 0.9
+  sprintMaxStepSpeed: 9
+  sprintMaxDirSpacing: 1.1
   isSprinting: 0
 --- !u!1 &6581556274525632068
 GameObject:
@@ -29365,18 +29367,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2836505bc547e4fb23e499b6d505ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracker: {fileID: 9031808980845266463}
-  hips: {fileID: 6206950113740566259}
-  spacing: -0.4
+  tracker: {fileID: 0}
+  hips: {fileID: 0}
+  spacing: 0
   altitude: 0
-  verticalOffset: 0.25
-  swingSpeed: 2.5
+  verticalOffset: 0
+  swingSpeed: 0
   swingHeight: 0.1
   depth: 0
   maxSwing: 1
   minSwing: 0
-  lerp: 1
-  isSwinging: 1
+  lerp: 0
+  isSwinging: 0
+  otherHand: {fileID: 0}
+  isLeadHand: 0
 --- !u!1 &8071099101302927763
 GameObject:
   m_ObjectHideFlags: 0
@@ -29569,18 +29573,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2836505bc547e4fb23e499b6d505ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracker: {fileID: 9031808980845266463}
-  hips: {fileID: 6206950113740566259}
-  spacing: 0.4
+  tracker: {fileID: 0}
+  hips: {fileID: 0}
+  spacing: 0
   altitude: 0
-  verticalOffset: 0.25
-  swingSpeed: 2.5
+  verticalOffset: 0
+  swingSpeed: 0
   swingHeight: 0.1
   depth: 0
   maxSwing: 1
   minSwing: 0
   lerp: 0
   isSwinging: 0
+  otherHand: {fileID: 0}
+  isLeadHand: 0
 --- !u!114 &8178238173187825749
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class LegTarget : MonoBehaviour
     public float maxStepDistance = 0.75f;
 
     [Header("Step Hight")]
-    [Range(0, 1)] float lerp;
+    [Range(0, 1)] public float lerp;
     public float stepHeight = 0.25f;
 
     [Header("Step Speed")]

@@ -23,6 +23,16 @@ public class HandSwing : MonoBehaviour
 
     public bool isSwinging;
 
+    [Header("Sync")]
+    public HandSwing otherHand;
+    public bool isLeadHand = false;
+
+    private void Start()
+    {
+        if (!isLeadHand)
+            lerp = 1f;
+    }
+
     private void LateUpdate()
     {
         if (tracker.horizontalSpeed <= 0.25f)
