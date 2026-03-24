@@ -36,6 +36,14 @@ public class CapsuleMovement : MonoBehaviour
     public LegTarget leftLeg;
     public LegTarget rightLeg;
 
+    [Header("Crouching")]
+    public KeyCode crouchKey = KeyCode.LeftControl;
+    public float crouchSpeed = 1.5f;
+    public Transform hipFollowPoint;
+    public Vector3 hipStandingLocalPos;
+    public Vector3 hipCrouchingLocalPos;
+    public float crouchTransitionSpeed = 5f;
+
     public Transform orientation;
 
     float horizontalInput;
@@ -83,18 +91,24 @@ public class CapsuleMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        bool sprinting = Input.GetKey(sprintKey);
+        bool crouching = Input.GetKey(crouchKey);
+
         if (Input.GetKey(sprintKey))
             moveSpeed = sprintSpeed;
+        else if (Input.GetKey(crouchKey))
+            moveSpeed = crouchSpeed;
         else
             moveSpeed = walkSpeed;
 
+        leftLeg.isSprinting = sprinting && !crouching;
+        rightLeg.isSprinting = sprinting && !crouching;
+
+        Vector3 targetHipPos = crouching ? hipCrouchingLocalPos : hipStandingLocalPos;
+        hipFollowPoint.localPosition = Vector3.Lerp(hipFollowPoint.localPosition, targetHipPos, Time.deltaTime * crouchTransitionSpeed);
+
         if (Input.GetKeyDown(jumpKey) && grounded)
             Jump();
-
-        bool sprinting = Input.GetKey(sprintKey);
-        moveSpeed = sprinting ? sprintSpeed : walkSpeed;
-        leftLeg.isSprinting = sprinting;
-        rightLeg.isSprinting = sprinting;
     }
 
     private void MovePlayer()
