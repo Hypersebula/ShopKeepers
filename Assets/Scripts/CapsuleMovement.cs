@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class CapsuleMovement : MonoBehaviour
 {
-    [Header("Movement")]
-    public float moveSpeed;
-
     public float groundDrag;
 
     public float jumpForce;
@@ -19,6 +16,33 @@ public class CapsuleMovement : MonoBehaviour
     public float playerHeight;
     public LayerMask whatIsGround;
     bool grounded;
+
+    [Header("Ragdoll Authority")]
+    public Rigidbody ragdollHips;
+    public bool ragdollDriving = false;
+
+    [Header("Grab Constraint")]
+    public Grabbing leftHand;
+    public Grabbing rightHand;
+    public float maxGrabDistance = 1.5f;
+
+    [Header("Sprinting")]
+    private float moveSpeed;
+    public float walkSpeed = 3f;
+    public float sprintSpeed = 6f;
+    public KeyCode sprintKey = KeyCode.LeftShift;
+
+    [Header("Leg IK")]
+    public LegTarget leftLeg;
+    public LegTarget rightLeg;
+
+    [Header("Crouching")]
+    public KeyCode crouchKey = KeyCode.LeftControl;
+    public float crouchSpeed = 1.5f;
+    public Transform hipFollowPoint;
+    public Vector3 hipStandingLocalPos;
+    public Vector3 hipCrouchingLocalPos;
+    public float crouchTransitionSpeed = 5f;
 
     public Transform orientation;
 
@@ -52,7 +76,14 @@ public class CapsuleMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (ragdollDriving)
+        {
+            rb.MovePosition(ragdollHips.position);
+            return;
+        }
+
         MovePlayer();
+        SpeedControl();
     }
 
     private void MyInput()
@@ -60,11 +91,24 @@ public class CapsuleMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        // when to jump
+        bool sprinting = Input.GetKey(sprintKey);
+        bool crouching = Input.GetKey(crouchKey);
+
+        if (Input.GetKey(sprintKey))
+            moveSpeed = sprintSpeed;
+        else if (Input.GetKey(crouchKey))
+            moveSpeed = crouchSpeed;
+        else
+            moveSpeed = walkSpeed;
+
+        leftLeg.isSprinting = sprinting && !crouching;
+        rightLeg.isSprinting = sprinting && !crouching;
+
+        Vector3 targetHipPos = crouching ? hipCrouchingLocalPos : hipStandingLocalPos;
+        hipFollowPoint.localPosition = Vector3.Lerp(hipFollowPoint.localPosition, targetHipPos, Time.deltaTime * crouchTransitionSpeed);
+
         if (Input.GetKeyDown(jumpKey) && grounded)
-        {
             Jump();
-        }
     }
 
     private void MovePlayer()
@@ -81,22 +125,33 @@ public class CapsuleMovement : MonoBehaviour
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
     }
 
+    private void ApplyGrabConstaint()
+    {
+        ConstraintToHand(leftHand);
+        ConstraintToHand(rightHand);
+    }
+
+    private void ConstraintToHand(Grabbing hand)
+    {
+       
+    }
+
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.angularVelocity.x, 0f, rb.angularVelocity.z);
+        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         // limit velocity if needed
         if(flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.angularVelocity = new Vector3(limitedVel.x, rb.angularVelocity.y, limitedVel.z);
+            rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
         }
     }
 
     private void Jump()
     {
         // reset y velocity
-        rb.angularVelocity = new Vector3(rb.angularVelocity.x, 0f, rb.angularVelocity.z);
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }

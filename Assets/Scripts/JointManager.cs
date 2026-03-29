@@ -50,6 +50,30 @@ public class JointManager : MonoBehaviour
     {
         RunSettings();
         ApplyStrenght();
+
+        if (Input.GetKeyDown(KeyCode.K))
+            KnockOut();
+    }
+
+    public void KnockOut()
+    {
+        foreach (var joint in strenghtJoints)
+        {
+            JointDrive dead = new JointDrive
+            {
+                positionSpring = 0f,
+                positionDamper = 0f,
+                maximumForce = 0f
+            };
+            joint.angularXDrive = dead;
+            joint.angularYZDrive = dead;
+            joint.slerpDrive = dead;
+        }
+    }
+
+    public void WakeUp()
+    {
+        ApplyStrenght();
     }
 
     public void RunSettings()
