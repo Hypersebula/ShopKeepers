@@ -114,17 +114,13 @@ public class Grabbing : MonoBehaviour
         Debug.Log("Grabbed: " + hitRb.gameObject.name);
     }
 
-    private void OnJointBreak(float breakForce)
+    public void OnGrabBroken()
     {
         grabJoint = null;
         IsGrabbing = false;
         GrabPoint = Vector3.zero;
         handContact.active = false;
-
-        if (grabbedRigidbody != null)
-        {
-            grabbedRigidbody = null;
-        }
+        grabbedRigidbody = null;
     }
 
     private void OnDrawGizmosSelected()
