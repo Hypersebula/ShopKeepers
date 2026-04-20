@@ -40,7 +40,7 @@ public class Grabbing : MonoBehaviour
     public bool IsGrabbing { get; private set; }
     public Vector3 GrabPoint { get; private set; }
 
-    private Rigidbody grabbedRigidbody;
+    public Rigidbody grabbedRigidbody;
 
     private void Update()
     {

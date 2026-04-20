@@ -2081,7 +2081,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444890896}
   serializedVersion: 4
-  m_Mass: 40
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6131,7 +6131,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297487393}
   serializedVersion: 4
-  m_Mass: 50
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6986,7 +6986,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539421432}
   serializedVersion: 4
-  m_Mass: 80
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7360,7 +7360,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632207979}
   serializedVersion: 4
-  m_Mass: 70
+  m_Mass: 40
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7551,6 +7551,54 @@ MonoBehaviour:
   hipStandingLocalPos: {x: 0, y: 0, z: 0}
   hipCrouchingLocalPos: {x: 0, y: 0, z: 0}
   crouchTransitionSpeed: 5
+  weightSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0.018
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 50
+      value: 0.1
+      inSlope: -0.018
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  weightJumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0.018
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 50
+      value: 0.1
+      inSlope: -0.018
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   orientation: {fileID: 992544642}
 --- !u!136 &1665005466
 CapsuleCollider:
@@ -9182,7 +9230,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925957712}
   serializedVersion: 4
-  m_Mass: 60
+  m_Mass: 30
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -18433,6 +18481,7 @@ MonoBehaviour:
   jointBrakeTorque: 2000
   handRigidbody: {fileID: 2833455727111022400}
   handContact: {fileID: 5452939704844180348}
+  grabbedRigidbody: {fileID: 0}
 --- !u!114 &2408895359289860309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18463,6 +18512,7 @@ MonoBehaviour:
   jointBrakeTorque: 1500
   handRigidbody: {fileID: 2833455726939245239}
   handContact: {fileID: 5452939705079395979}
+  grabbedRigidbody: {fileID: 0}
 --- !u!1 &2412134405186449451
 GameObject:
   m_ObjectHideFlags: 0
@@ -32895,6 +32945,54 @@ MonoBehaviour:
   hipStandingLocalPos: {x: 0, y: -0.331, z: 0}
   hipCrouchingLocalPos: {x: 0, y: -0.625, z: 0}
   crouchTransitionSpeed: 7.5
+  weightSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.02889601
+      outSlope: -0.02889601
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07328997
+    - serializedVersion: 3
+      time: 50
+      value: 0.1
+      inSlope: -0.018
+      outSlope: -0.018
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  weightJumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.99999833
+      inSlope: -0.004893563
+      outSlope: -0.004893563
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.3643533
+    - serializedVersion: 3
+      time: 50
+      value: 0.1
+      inSlope: -0.018
+      outSlope: -0.018
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   orientation: {fileID: 2089973622050750118}
 --- !u!114 &6711931597914145701
 MonoBehaviour:
@@ -32932,6 +33030,54 @@ MonoBehaviour:
   hipStandingLocalPos: {x: 0, y: -0.331, z: 0}
   hipCrouchingLocalPos: {x: 0, y: -0.625, z: 0}
   crouchTransitionSpeed: 7.5
+  weightSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0.018
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 50
+      value: 0.1
+      inSlope: -0.018
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  weightJumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0.018
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 50
+      value: 0.1
+      inSlope: -0.018
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   orientation: {fileID: 2089973622423180113}
 --- !u!1 &6733312457636900042
 GameObject:
@@ -33947,6 +34093,7 @@ MonoBehaviour:
   jointBrakeTorque: 2000
   handRigidbody: {fileID: 7616291211999193382}
   handContact: {fileID: 2805881557114580791}
+  grabbedRigidbody: {fileID: 0}
 --- !u!114 &7053370215692406277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33977,6 +34124,7 @@ MonoBehaviour:
   jointBrakeTorque: 1500
   handRigidbody: {fileID: 7616291212367561937}
   handContact: {fileID: 2805881556946600640}
+  grabbedRigidbody: {fileID: 0}
 --- !u!1 &7075734058495256878
 GameObject:
   m_ObjectHideFlags: 0
