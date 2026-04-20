@@ -26,6 +26,10 @@ public class Grabbing : MonoBehaviour
     public KeyCode grabKey = KeyCode.Mouse0;
     public float reachSpeed = 5f;
 
+    [Header("Joint Snapping")]
+    public float jointBrakeForce = 1500f;
+    public float jointBrakeTorque = 1500f;
+
     private float reachAmount = 0f;
 
     public Rigidbody handRigidbody;
@@ -35,6 +39,8 @@ public class Grabbing : MonoBehaviour
 
     public bool IsGrabbing { get; private set; }
     public Vector3 GrabPoint { get; private set; }
+
+    private Rigidbody grabbedRigidbody;
 
     private void Update()
     {
@@ -57,6 +63,7 @@ public class Grabbing : MonoBehaviour
                 grabJoint = null;
                 IsGrabbing = false;
                 GrabPoint = Vector3.zero;
+                grabbedRigidbody = null;
             }
         }
     }
@@ -91,6 +98,8 @@ public class Grabbing : MonoBehaviour
         GrabPoint = contactPoint;
         IsGrabbing = true;
 
+        grabbedRigidbody = hitRb;
+
         grabJoint = handRigidbody.gameObject.AddComponent<ConfigurableJoint>();
         grabJoint.connectedBody = hitRb;
         grabJoint.xMotion = ConfigurableJointMotion.Locked;
@@ -99,10 +108,23 @@ public class Grabbing : MonoBehaviour
         grabJoint.angularXMotion = ConfigurableJointMotion.Locked;
         grabJoint.angularYMotion = ConfigurableJointMotion.Locked;
         grabJoint.angularZMotion = ConfigurableJointMotion.Locked;
-        grabJoint.breakForce = Mathf.Infinity;
-        grabJoint.breakTorque = Mathf.Infinity;
+        grabJoint.breakForce = jointBrakeForce;
+        grabJoint.breakTorque = jointBrakeTorque;
 
         Debug.Log("Grabbed: " + hitRb.gameObject.name);
+    }
+
+    private void OnJointBreak(float breakForce)
+    {
+        grabJoint = null;
+        IsGrabbing = false;
+        GrabPoint = Vector3.zero;
+        handContact.active = false;
+
+        if (grabbedRigidbody != null)
+        {
+            grabbedRigidbody = null;
+        }
     }
 
     private void OnDrawGizmosSelected()
