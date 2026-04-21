@@ -23,10 +23,17 @@ public class RagdollStateController : MonoBehaviour
     private float originalPositionDamping;
     private float originalAngularVelocityGain;
 
+    public CapsuleFollower capsuleFollower;
+    private float originalFollowStrength;
+    [Tooltip("A treshold under wich the capsule follower is set to zero")]
+    public float deathTreshold = 0.05f;
+
     private void Start()
     {
         originalSpring = new float[groups.Length][];
         originalDamper = new float[groups.Length][];
+
+        originalFollowStrength = capsuleFollower.followStrenght;
 
         originalPositionGain = activeRagdoll.positionGain;
         originalPositionDamping = activeRagdoll.positionDamping;
@@ -50,6 +57,10 @@ public class RagdollStateController : MonoBehaviour
         activeRagdoll.positionGain = originalPositionGain * globalMultiplier;
         activeRagdoll.positionDamping = originalPositionDamping * globalMultiplier;
         activeRagdoll.angularVelocityGain = originalAngularVelocityGain * globalMultiplier;
+
+        float followMultiplied = originalFollowStrength * globalMultiplier;
+        capsuleFollower.followStrenght = followMultiplied;
+        capsuleFollower.enabled = globalMultiplier > deathTreshold; // death treshold
 
         for (int g = 0; g < groups.Length; g++)
         {
