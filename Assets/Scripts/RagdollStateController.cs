@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class RagdollStateController : MonoBehaviour
 {
@@ -89,6 +90,23 @@ public class RagdollStateController : MonoBehaviour
                 groups[g].joints[j].angularYZDrive = yzDrive;
             }
         }
+    }
+     
+    public IEnumerator LerpMultiplier(float target, float duration)
+    {
+        float start = globalMultiplier;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            globalMultiplier = Mathf.Lerp(start, target, elapsed / duration);
+            ApplyMultipliers();
+            yield return null;
+        }
+
+        globalMultiplier = target;
+        ApplyMultipliers();
     }
 
     private void OnValidate()
