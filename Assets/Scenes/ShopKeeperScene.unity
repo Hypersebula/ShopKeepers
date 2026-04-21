@@ -27020,6 +27020,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1605799418877262394}
   - component: {fileID: 3256275085313291667}
+  - component: {fileID: 5160857202737047801}
   m_Layer: 0
   m_Name: ActiveRagdollController
   m_TagString: Untagged
@@ -27027,6 +27028,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5160857202737047801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160857202737047800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdec47ffcab0c324db21112a10c7b5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groups:
+  - name: Body
+    joints:
+    - {fileID: 9190023793271555074}
+    - {fileID: 1938391376630322292}
+    - {fileID: 4095507836116196532}
+    - {fileID: 6311119209913063162}
+    - {fileID: 1842239364380732572}
+    - {fileID: 3685927708395623737}
+    - {fileID: 464499765694558063}
+    - {fileID: 6587616013179016179}
+    - {fileID: 5424222693900487446}
+    - {fileID: 2572771958711994795}
+    - {fileID: 3551220203357653303}
+    - {fileID: 4005342856649249190}
+    - {fileID: 5751033261285411917}
+    - {fileID: 610031191070070365}
+    - {fileID: 4601605567933411200}
+    multiplier: 1
+  globalMultiplier: 1
+  activeRagdoll: {fileID: 3256275085313291667}
 --- !u!153 &5227530657950180956
 ConfigurableJoint:
   m_ObjectHideFlags: 0
