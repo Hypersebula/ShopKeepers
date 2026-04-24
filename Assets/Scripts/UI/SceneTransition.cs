@@ -12,7 +12,8 @@ public class SceneTransition : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        Debug.Log("SceneTransition Awake, instance is: " + (instance == null ? "null" : "exists"));
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
@@ -22,17 +23,15 @@ public class SceneTransition : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void LoadScene(int index, bool fadeIn = true)
+    public void LoadScene(int index)
     {
-        StartCoroutine(FadeAndLoad(index, fadeIn));
+        StartCoroutine(FadeAndLoad(index));
     }
 
-    private IEnumerator FadeAndLoad(int index, bool fadeIn)
+    private IEnumerator FadeAndLoad(int index)
     {
         yield return StartCoroutine(FadeOut());
         SceneManager.LoadScene(index);
-        if (fadeIn)
-            yield return StartCoroutine(FadeIn());
     }
 
     private IEnumerator FadeIn()
@@ -41,7 +40,7 @@ public class SceneTransition : MonoBehaviour
         Color c = fadePanel.color;
         while (elapsed < fadeDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             c.a = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
             fadePanel.color = c;
             yield return null;
@@ -56,7 +55,7 @@ public class SceneTransition : MonoBehaviour
         Color c = fadePanel.color;
         while (elapsed < fadeDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             c.a = Mathf.Lerp(0f, 1f, elapsed / fadeDuration);
             fadePanel.color = c;
             yield return null;
@@ -68,7 +67,7 @@ public class SceneTransition : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // put the index of scenes that should not be faded into
-        int[] noFadeScenes = {  };
+        int[] noFadeScenes = { 1 };
         if (System.Array.IndexOf(noFadeScenes, scene.buildIndex) >= 0) return;
         StartCoroutine(FadeIn());
     }
