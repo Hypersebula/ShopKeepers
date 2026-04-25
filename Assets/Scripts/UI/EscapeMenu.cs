@@ -17,6 +17,8 @@ public class EscapeMenu : MonoBehaviour
         isOpen = !isOpen;
         escapePanel.SetActive(isOpen);
         Time.timeScale = isOpen ? 0f : 1f;
+        Cursor.lockState = isOpen ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = isOpen;
     }
 
     public void Resume()
@@ -24,11 +26,15 @@ public class EscapeMenu : MonoBehaviour
         isOpen = false;
         escapePanel.SetActive(false);
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneTransition.instance.LoadScene(0);
     }
 
