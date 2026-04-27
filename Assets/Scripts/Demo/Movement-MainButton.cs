@@ -15,14 +15,18 @@ public class PhysicsButton : MonoBehaviour
     public GameObject destroyObject1;
     public GameObject destroyObject2;
     public GameObject unhideObject;
+    public GameObject capsule;
+    public GameObject ragdoll;
+    public Transform targetLocation;
+    public float EnableTime = 1f;
+    public RagdollStateController ragdollStateController;
 
     [Header("Custom Events")]
     public UnityEvent onPressed;
     public UnityEvent onReleased;
 
-    private bool isPressed = false;
+    public bool isPressed = false;
     private float currentY;
-
 
     private void Start()
     {
@@ -56,7 +60,6 @@ public class PhysicsButton : MonoBehaviour
     {
         Rigidbody rb = other.attachedRigidbody;
         if (rb == null) return;
-
         float force = rb.mass * Physics.gravity.magnitude;
         currentY = Mathf.MoveTowards(currentY, downY, force * Time.fixedDeltaTime * 0.1f);
     }
@@ -64,9 +67,43 @@ public class PhysicsButton : MonoBehaviour
     private void OnButtonPressed()
     {
         onPressed.Invoke();
-
         if (destroyObject1 != null) Destroy(destroyObject1);
         if (destroyObject2 != null) Destroy(destroyObject2);
         if (unhideObject != null) unhideObject.SetActive(true);
+        if (capsule != null && ragdoll != null && targetLocation != null)
+            StartCoroutine(Teleport());
+    }
+
+    private System.Collections.IEnumerator Teleport()
+    {
+        ragdollStateController.globalMultiplier = 0f;
+        ragdollStateController.ApplyMultipliers();
+
+        foreach (Collider col in ragdoll.GetComponentsInChildren<Collider>())
+            col.enabled = false;
+
+        capsule.SetActive(false);
+
+        yield return null;
+
+        Vector3 offset = targetLocation.position - ragdoll.transform.position;
+        capsule.transform.position = targetLocation.position;
+
+        foreach (Rigidbody rb in ragdoll.GetComponentsInChildren<Rigidbody>())
+        {
+            rb.position += offset;
+            rb.linearVelocity = Vector3.zero;
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        capsule.SetActive(true);
+
+        foreach (Collider col in ragdoll.GetComponentsInChildren<Collider>())
+            col.enabled = true;
+
+        yield return new WaitForSeconds(0.2f);
+
+        StartCoroutine(ragdollStateController.LerpMultiplier(1f, 0.5f));
     }
 }
