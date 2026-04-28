@@ -20,6 +20,7 @@ public class PhysicsButton : MonoBehaviour
     public Transform targetLocation;
     public float EnableTime = 1f;
     public RagdollStateController ragdollStateController;
+    public HealthManager healthManager;
 
     [Header("Custom Events")]
     public UnityEvent onPressed;
@@ -74,7 +75,7 @@ public class PhysicsButton : MonoBehaviour
             StartCoroutine(Teleport());
     }
 
-    private System.Collections.IEnumerator Teleport()
+    public System.Collections.IEnumerator Teleport()
     {
         ragdollStateController.globalMultiplier = 0f;
         ragdollStateController.ApplyMultipliers();
@@ -86,24 +87,22 @@ public class PhysicsButton : MonoBehaviour
 
         yield return null;
 
-        Vector3 offset = targetLocation.position - ragdoll.transform.position;
         capsule.transform.position = targetLocation.position;
-
-        foreach (Rigidbody rb in ragdoll.GetComponentsInChildren<Rigidbody>())
-        {
-            rb.position += offset;
-            rb.linearVelocity = Vector3.zero;
-        }
-
-        yield return new WaitForSeconds(0.2f);
 
         capsule.SetActive(true);
 
-        foreach (Collider col in ragdoll.GetComponentsInChildren<Collider>())
-            col.enabled = true;
-
-        yield return new WaitForSeconds(0.2f);
+        if (healthManager != null)
+        {
+            healthManager.isDead = false;
+            healthManager.currentHealth = healthManager.maxHealth;
+            ragdollStateController.globalMultiplier = 1f;
+        }
 
         StartCoroutine(ragdollStateController.LerpMultiplier(1f, 0.5f));
+
+        yield return new WaitForSeconds(2f);
+
+        foreach (Collider col in ragdoll.GetComponentsInChildren<Collider>())
+            col.enabled = true;
     }
 }
