@@ -44,6 +44,17 @@ public class CapsuleMovement : MonoBehaviour
     public Vector3 hipCrouchingLocalPos;
     public float crouchTransitionSpeed = 5f;
 
+    [Header("Crouch Collider")]
+    public CapsuleCollider capsuleCollider;
+    public float standingHeight = 2f;
+    public float crouchHeight = 1f;
+    public Vector3 standingCenter = new Vector3(0f, 0f, 0f);
+    public Vector3 crouchCenter = new Vector3(0f, -0.5f, 0f);
+
+    [Header("Weight System")]
+    public AnimationCurve weightSpeedCurve = AnimationCurve.Linear(0f, 1f, 50f, 0.1f);
+    public AnimationCurve weightJumpCurve = AnimationCurve.Linear(0f, 1f, 50f, 0.1f);
+
     public Transform orientation;
 
     float horizontalInput;
@@ -94,12 +105,22 @@ public class CapsuleMovement : MonoBehaviour
         bool sprinting = Input.GetKey(sprintKey);
         bool crouching = Input.GetKey(crouchKey);
 
+        float targetHeight = crouching ? crouchHeight : standingHeight;
+        Vector3 targetCenter = crouching ? crouchCenter : standingCenter;
+
+        capsuleCollider.height = Mathf.Lerp(capsuleCollider.height, targetHeight, Time.deltaTime * crouchTransitionSpeed);
+        capsuleCollider.center = Vector3.Lerp(capsuleCollider.center, targetCenter, Time.deltaTime * crouchTransitionSpeed);
+
+        float carriedMass = GetCarriedMass();
+
         if (Input.GetKey(sprintKey))
             moveSpeed = sprintSpeed;
         else if (Input.GetKey(crouchKey))
             moveSpeed = crouchSpeed;
         else
             moveSpeed = walkSpeed;
+
+        moveSpeed *= weightSpeedCurve.Evaluate(carriedMass);
 
         leftLeg.isSprinting = sprinting && !crouching;
         rightLeg.isSprinting = sprinting && !crouching;
@@ -153,6 +174,19 @@ public class CapsuleMovement : MonoBehaviour
         // reset y velocity
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        float carriedMass = GetCarriedMass();
+        rb.AddForce(transform.up * jumpForce * weightJumpCurve.Evaluate(carriedMass), ForceMode.Impulse);
+    }
+
+    private float GetCarriedMass()
+    {
+        float mass = 0f;
+        Rigidbody leftRb = leftHand.IsGrabbing ? leftHand.grabbedRigidbody : null;
+        Rigidbody rightRb = rightHand.IsGrabbing ? rightHand.grabbedRigidbody : null;
+
+        if (leftRb != null) mass += leftRb.mass;
+        if (rightRb != null && rightRb != leftRb) mass += rightRb.mass;
+
+        return mass;
     }
 }
