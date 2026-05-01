@@ -12,6 +12,7 @@ public class Grabbing : MonoBehaviour
     [Header("References")]
     public Transform aimer;
     public Camera cam;
+    public Punching punching;
 
     [Header("Debug")]
     public bool drawGizmos = true;
@@ -49,7 +50,10 @@ public class Grabbing : MonoBehaviour
         float target = Input.GetKey(grabKey) ? 1f : 0f;
         reachAmount = Mathf.MoveTowards(reachAmount, target, Time.deltaTime * reachSpeed);
 
-        ikTarget.position = Vector3.Lerp(ikTargetHome.position, reachGoal, reachAmount);
+
+
+        if (!punching.isPunching)
+            ikTarget.position = Vector3.Lerp(ikTargetHome.position, reachGoal, reachAmount);
 
         if (Input.GetKeyDown(grabKey))
             handContact.active = true;
