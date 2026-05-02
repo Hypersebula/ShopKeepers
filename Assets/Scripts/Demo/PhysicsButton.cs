@@ -26,24 +26,57 @@ public class PhysicsButton : MonoBehaviour
     public UnityEvent onPressed;
     public UnityEvent onReleased;
 
+    [Header("Spawn")]
+    public GameObject spawnPrefab;
+    public Transform spawnLocation;
+
+    [Header("Player Only")]
+    public bool playerOnly = false;
+
+    [Header("Material Change")]
+    public Renderer materialRenderer;
+    public Material pressedMaterial;
+    private Material originalMaterial;
+
+    [Header("Multi Button Condition")]
+    public PhysicsButton conditionButton1;
+    public PhysicsButton conditionButton2;
+    public PhysicsButton conditionButton3;
+    public GameObject conditionDisable1;
+    public GameObject conditionDisable2;
+    public GameObject conditionDisable3;
+
     public bool isPressed = false;
     private float currentY;
 
+    public Vector3 pressDirection = Vector3.down;
+
+
+    private float upTravel = 0f;
+    private float downTravel;
+    private float currentTravel;
+
+    [Header("Pressable")]
+    public bool isPressable = true;
+    public PhysicsButton button;
+
+    private Vector3 originalLocalPosition;
+
     private void Start()
     {
-        upY = buttonTop.localPosition.y;
-        downY = upY - travelDistance;
-        currentY = upY;
+        originalLocalPosition = buttonTop.localPosition;
+        downTravel = travelDistance;
+        currentTravel = upTravel;
+        if (materialRenderer != null)
+            originalMaterial = materialRenderer.material;
     }
 
     private void FixedUpdate()
     {
-        currentY = Mathf.Lerp(currentY, upY, Time.fixedDeltaTime * springStrength);
-        Vector3 pos = buttonTop.localPosition;
-        pos.y = currentY;
-        buttonTop.localPosition = pos;
+        currentTravel = Mathf.Lerp(currentTravel, upTravel, Time.fixedDeltaTime * springStrength);
+        buttonTop.localPosition = originalLocalPosition + pressDirection.normalized * currentTravel;
 
-        float pressAmount = 1f - Mathf.InverseLerp(downY, upY, currentY);
+        float pressAmount = Mathf.InverseLerp(upTravel, downTravel, currentTravel);
 
         if (!isPressed && pressAmount >= pressThreshold)
         {
@@ -53,16 +86,35 @@ public class PhysicsButton : MonoBehaviour
         else if (isPressed && pressAmount < pressThreshold * 0.5f)
         {
             isPressed = false;
+            if (materialRenderer != null && originalMaterial != null)
+                materialRenderer.material = originalMaterial;
             onReleased.Invoke();
+            button.SetPressable(false);
+        }
+
+        if (conditionButton1 != null && conditionButton2 != null && conditionButton3 != null)
+        {
+            bool allPressed = conditionButton1.isPressable && conditionButton2.isPressable && conditionButton3.isPressable;
+            Debug.Log($"allPressed: {allPressed} isPressed: {isPressed} b1: {conditionButton1.isPressed} b2: {conditionButton2.isPressed} b3: {conditionButton3.isPressed}");
+
+            bool shouldDisable = allPressed && isPressed;
+
+            if (conditionDisable1 != null) conditionDisable1.SetActive(!shouldDisable);
+            if (conditionDisable2 != null) conditionDisable2.SetActive(!shouldDisable);
+            if (conditionDisable3 != null) conditionDisable3.SetActive(!shouldDisable);
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log("Trigger hit by: " + other.gameObject.name + " isPressable: " + isPressable);
+        if (!isPressable) return;
+        if (playerOnly && !other.CompareTag("Player")) return;
         Rigidbody rb = other.attachedRigidbody;
+        Debug.Log("Rigidbody: " + rb);
         if (rb == null) return;
         float force = rb.mass * Physics.gravity.magnitude;
-        currentY = Mathf.MoveTowards(currentY, downY, force * Time.fixedDeltaTime * 0.1f);
+        currentTravel = Mathf.MoveTowards(currentTravel, downTravel, force * Time.fixedDeltaTime * 0.1f);
     }
 
     private void OnButtonPressed()
@@ -73,6 +125,12 @@ public class PhysicsButton : MonoBehaviour
         if (unhideObject != null) unhideObject.SetActive(true);
         if (capsule != null && ragdoll != null && targetLocation != null)
             StartCoroutine(Teleport());
+        if (spawnPrefab != null && spawnLocation != null)
+            Instantiate(spawnPrefab, spawnLocation.position, spawnLocation.rotation);
+        if (materialRenderer != null && pressedMaterial != null)
+            materialRenderer.material = pressedMaterial;
+        if (button != null)
+            button.SetPressable(true);
     }
 
     public System.Collections.IEnumerator Teleport()
@@ -104,5 +162,10 @@ public class PhysicsButton : MonoBehaviour
 
         foreach (Collider col in ragdoll.GetComponentsInChildren<Collider>())
             col.enabled = true;
+    }
+
+    public void SetPressable(bool value)
+    {
+        isPressable = value;
     }
 }
