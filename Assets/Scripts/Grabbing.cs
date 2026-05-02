@@ -32,6 +32,9 @@ public class Grabbing : MonoBehaviour
     public float jointBrakeForce = 1500f;
     public float jointBrakeTorque = 1500f;
 
+    [Header("Throwing")]
+    public float throwForce = 10f;
+
     private float reachAmount = 0f;
 
     public Rigidbody handRigidbody;
@@ -69,6 +72,24 @@ public class Grabbing : MonoBehaviour
                 GrabPoint = Vector3.zero;
                 grabbedRigidbody = null;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && IsGrabbing)
+        {
+            handContact.active = false;
+            if (grabJoint != null)
+            {
+                Destroy(grabJoint);
+                grabJoint = null;
+            }
+            if (grabbedRigidbody != null)
+            {
+                grabbedRigidbody.linearVelocity = handRigidbody.linearVelocity;
+                grabbedRigidbody.AddForce(cam.transform.forward * throwForce, ForceMode.Impulse);
+                grabbedRigidbody = null;
+            }
+            IsGrabbing = false;
+            GrabPoint = Vector3.zero;
         }
     }
 
