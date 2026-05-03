@@ -45,6 +45,9 @@ public class PhysicsButton : MonoBehaviour
     public GameObject conditionDisable1;
     public GameObject conditionDisable2;
     public GameObject conditionDisable3;
+    private bool gate1Disabled = false;
+    private bool gate2Disabled = false;
+    private bool gate3Disabled = false;
 
     public bool isPressed = false;
     private float currentY;
@@ -94,14 +97,24 @@ public class PhysicsButton : MonoBehaviour
 
         if (conditionButton1 != null && conditionButton2 != null && conditionButton3 != null)
         {
-            bool allPressed = conditionButton1.isPressable && conditionButton2.isPressable && conditionButton3.isPressable;
-            Debug.Log($"allPressed: {allPressed} isPressed: {isPressed} b1: {conditionButton1.isPressed} b2: {conditionButton2.isPressed} b3: {conditionButton3.isPressed}");
+            bool allActive = conditionButton1.isPressable && conditionButton2.isPressable && conditionButton3.isPressable && isPressed;
 
-            bool shouldDisable = allPressed && isPressed;
+            if (allActive)
+            {
+                if (conditionButton1.isPressed) gate1Disabled = true;
+                if (conditionButton2.isPressed) gate2Disabled = true;
+                if (conditionButton3.isPressed) gate3Disabled = true;
+            }
+            else
+            {
+                gate1Disabled = false;
+                gate2Disabled = false;
+                gate3Disabled = false;
+            }
 
-            if (conditionDisable1 != null) conditionDisable1.SetActive(!shouldDisable);
-            if (conditionDisable2 != null) conditionDisable2.SetActive(!shouldDisable);
-            if (conditionDisable3 != null) conditionDisable3.SetActive(!shouldDisable);
+            if (conditionDisable1 != null) conditionDisable1.SetActive(!gate1Disabled);
+            if (conditionDisable2 != null) conditionDisable2.SetActive(!gate2Disabled);
+            if (conditionDisable3 != null) conditionDisable3.SetActive(!gate3Disabled);
         }
     }
 

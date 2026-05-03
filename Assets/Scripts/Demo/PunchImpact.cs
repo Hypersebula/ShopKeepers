@@ -10,5 +10,9 @@ public class PunchImpact : MonoBehaviour
         DestructibleFence fence = collision.gameObject.GetComponentInParent<DestructibleFence>();
         if (fence != null)
             fence.Hit();
+
+        CycleBlock block = collision.gameObject.GetComponent<CycleBlock>();
+        if (block != null)
+            block.Hit();
     }
 }
