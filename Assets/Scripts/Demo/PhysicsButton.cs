@@ -65,6 +65,9 @@ public class PhysicsButton : MonoBehaviour
 
     private Vector3 originalLocalPosition;
 
+    [SerializeField] bool loadScene = false;
+    [SerializeField] int sceneIndex;
+
     private void Start()
     {
         originalLocalPosition = buttonTop.localPosition;
@@ -144,6 +147,10 @@ public class PhysicsButton : MonoBehaviour
             materialRenderer.material = pressedMaterial;
         if (button != null)
             button.SetPressable(true);
+        if (loadScene)
+            if (SceneTransition.instance != null)
+                SceneTransition.instance.LoadScene(sceneIndex);
+        //Debug.Log("Button pressed, instance: " + SceneTransition.instance);
     }
 
     public System.Collections.IEnumerator Teleport()

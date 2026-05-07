@@ -54,9 +54,9 @@ public class Grabbing : MonoBehaviour
         float target = Input.GetKey(grabKey) ? 1f : 0f;
         reachAmount = Mathf.MoveTowards(reachAmount, target, Time.deltaTime * reachSpeed);
 
-
-        if (!punching.isPunching && !pickup.isReaching && !pickup.isHolding)
-            ikTarget.position = Vector3.Lerp(ikTargetHome.position, reachGoal, reachAmount);
+        if(punching != null && pickup != null)
+            if (!punching.isPunching && !pickup.isReaching && !pickup.isHolding)
+                ikTarget.position = Vector3.Lerp(ikTargetHome.position, reachGoal, reachAmount);
 
         if (Input.GetKeyDown(grabKey))
             handContact.active = true;
