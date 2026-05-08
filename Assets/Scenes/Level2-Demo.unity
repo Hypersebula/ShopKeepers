@@ -4140,7 +4140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1039.4341, y: -541.3341}
+  m_AnchoredPosition: {x: -1039.4934, y: -541.99994}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432721754
@@ -4163,8 +4163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Gratuluju k dokon\u010Den\xED druh\xE9ho levelu, m\u016F\u017Ee\u0161
-    pokra\u0159ovat\n\u2193\n"
+  m_text: "Gratuluju k dokon\u010Den\xED druh\xE9ho levelu\n\u2193\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9338,7 +9337,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Objekty m\u016F\u017Ees zahodit rychl\xEDm oto\u010Den\xEDm a pu\u0161t\u011Bn\xEDm
-    objektu, nebo pomoci tla\u010D\xEDtka F"
+    objektu, nebo pomoc\xED tla\u010D\xEDtka F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20194,15 +20193,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3197420566284559445, guid: 9c776fa44d328d54696ebcc6c919d0dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -77.332
+      value: 6.08
       objectReference: {fileID: 0}
     - target: {fileID: 3197420566284559445, guid: 9c776fa44d328d54696ebcc6c919d0dd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.62
+      value: 0.566
       objectReference: {fileID: 0}
     - target: {fileID: 3197420566284559445, guid: 9c776fa44d328d54696ebcc6c919d0dd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.987
+      value: -0.43
       objectReference: {fileID: 0}
     - target: {fileID: 3197420566284559445, guid: 9c776fa44d328d54696ebcc6c919d0dd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20238,11 +20237,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7135945551155864401, guid: 9c776fa44d328d54696ebcc6c919d0dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000010430813
+      value: -9.313226e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135945551155864401, guid: 9c776fa44d328d54696ebcc6c919d0dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.927
       objectReference: {fileID: 0}
     - target: {fileID: 7135945551155864401, guid: 9c776fa44d328d54696ebcc6c919d0dd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.19000083
+      value: 0.1899999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

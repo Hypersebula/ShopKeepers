@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5438997472403071328}
   - component: {fileID: 5534961585350499310}
   - component: {fileID: 1642978408762631600}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 7155896736167437691}
   - component: {fileID: 8896452261402123330}
   - component: {fileID: 6274087851504395980}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 5514355556806695361}
   - component: {fileID: 3718259553294234479}
   - component: {fileID: 7735631626248258369}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 7830210792935106101}
   - component: {fileID: 8186057281626392883}
   - component: {fileID: 7006385426887466608}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BarkPlank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 4381066323886889737}
   - component: {fileID: 7878070004960874322}
   - component: {fileID: 6389389242693443494}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BarkPlank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
