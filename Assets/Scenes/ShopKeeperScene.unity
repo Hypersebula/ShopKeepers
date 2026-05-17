@@ -20529,8 +20529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5375d08d7a6845d44b51c065ada926d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 150
-  sensY: 150
+  sensX: 2
+  sensY: 2
   orientation: {fileID: 1231910811369241023}
   Capsule: {fileID: 1231910811369241023}
 --- !u!4 &2912438432681995820
