@@ -5,8 +5,8 @@ public class PhysicsButton : MonoBehaviour
 {
     [Header("Button Settings")]
     public Transform buttonTop;
-    private float upY = 0f;
-    private float downY = -0.05f;
+    //private float upY = 0f;
+    //private float downY = -0.05f;
     public float springStrength = 10f;
     public float pressThreshold = 0.8f;
     public float travelDistance = 0.05f;

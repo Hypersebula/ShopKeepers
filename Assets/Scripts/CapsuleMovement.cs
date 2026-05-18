@@ -132,15 +132,6 @@ public class CapsuleMovement : MonoBehaviour
             Jump();
     }
 
-    void OnCollisionStay(Collision col)
-    {
-        if (col.gameObject.CompareTag("Ground"))
-        {
-            // Add small outward force to prevent sticking
-            Vector3 pushDirection = (transform.position - col.contacts[0].point).normalized;
-            rb.AddForce(pushDirection * 5f, ForceMode.VelocityChange);
-        }
-    }
 
     private void MovePlayer()
     {
