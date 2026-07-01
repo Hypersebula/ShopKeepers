@@ -30,6 +30,8 @@ public class RagdollStateController : MonoBehaviour
     [Tooltip("A treshold under wich the capsule follower is set to zero")]
     public float deathTreshold = 0.05f;
 
+    public AnimationCurve strengthCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+
     private void Start()
     {
         originalSpring = new float[groups.Length][];
@@ -66,7 +68,7 @@ public class RagdollStateController : MonoBehaviour
 
         for (int g = 0; g < groups.Length; g++)
         {
-            float combined = globalMultiplier * groups[g].multiplier;
+            float combined = strengthCurve.Evaluate(globalMultiplier * groups[g].multiplier);
 
             for (int j = 0; j < groups[g].joints.Length; j++)
             {

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ShopKeeperScene.unity
     guid: 241b10ce1f3462c4188169073c763538
   - enabled: 1
+    path: Assets/Scenes/IntroSequence.unity
+    guid: 681d3b08bad90334b9594b435a63d65d
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 6ce986834f4122943a11222abb7694e5
   - enabled: 1
@@ -21,14 +24,31 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial-Demo.unity
     guid: f6fae6419cffd2249922812744f0d359
   - enabled: 1
+    path: Assets/Scenes/Level1-Before.unity
+    guid: 6a1278d679117d44b994b6a36d9e1843
+  - enabled: 1
     path: Assets/Scenes/Level1-Demo.unity
     guid: 11e2b18bebbbe18459fcc47ce20d33de
+  - enabled: 1
+    path: Assets/Scenes/Level2-Before.unity
+    guid: 9c33454a63a4a414b8a01f773905aa40
   - enabled: 1
     path: Assets/Scenes/Level2-Demo.unity
     guid: eb232d2b890af5840971940a9848c2a7
   - enabled: 1
+    path: Assets/Scenes/Level3-Before.unity
+    guid: f863b48452bf18e419794e864f8857ba
+  - enabled: 1
     path: Assets/Scenes/Level3-Demo.unity
     guid: 7ea63a0482cc67f4787fbbb0b29ab978
+  - enabled: 1
+    path: Assets/Scenes/Level1-After.unity
+    guid: 37de36cf6c82da94295f0749cc05822e
+  - enabled: 1
+    path: Assets/Scenes/Level2-After.unity
+    guid: 6b79ff1916b813d4eb34ba75765d5a66
+  - enabled: 1
+    path: Assets/Scenes/Level3-After.unity
+    guid: 5a65e26c6dcbec24a9642507d5a6b995
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_UseUCBPForAssetBundles: 0

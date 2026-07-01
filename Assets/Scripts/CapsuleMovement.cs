@@ -132,6 +132,7 @@ public class CapsuleMovement : MonoBehaviour
             Jump();
     }
 
+
     private void MovePlayer()
     {
         // calculate movement direction
@@ -176,7 +177,7 @@ public class CapsuleMovement : MonoBehaviour
 
         float carriedMass = GetCarriedMass();
         rb.AddForce(transform.up * jumpForce * weightJumpCurve.Evaluate(carriedMass), ForceMode.Impulse);
-    }
+    } 
 
     private float GetCarriedMass()
     {

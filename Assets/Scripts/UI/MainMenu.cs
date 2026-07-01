@@ -1,9 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenuPanel;
     public GameObject levelSelectPanel;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        if (SceneTransition.instance != null)
+            StartCoroutine(SceneTransition.instance.FadeIn());
+    }
 
     public void StartGame()
     {
@@ -19,7 +28,10 @@ public class MainMenu : MonoBehaviour
 
     public void LoadLevel(int index)
     {
-        SceneTransition.instance.LoadScene(index);
+        if (SceneTransition.instance != null)
+            SceneTransition.instance.LoadScene(index);
+        else
+            SceneManager.LoadScene(index);
     }
 
     public void QuitGame()

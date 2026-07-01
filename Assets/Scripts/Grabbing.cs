@@ -12,6 +12,8 @@ public class Grabbing : MonoBehaviour
     [Header("References")]
     public Transform aimer;
     public Camera cam;
+    public Punching punching;
+    public Pickup pickup;
 
     [Header("Debug")]
     public bool drawGizmos = true;
@@ -29,6 +31,9 @@ public class Grabbing : MonoBehaviour
     [Header("Joint Snapping")]
     public float jointBrakeForce = 1500f;
     public float jointBrakeTorque = 1500f;
+
+    [Header("Throwing")]
+    public float throwForce = 10f;
 
     private float reachAmount = 0f;
 
@@ -49,7 +54,9 @@ public class Grabbing : MonoBehaviour
         float target = Input.GetKey(grabKey) ? 1f : 0f;
         reachAmount = Mathf.MoveTowards(reachAmount, target, Time.deltaTime * reachSpeed);
 
-        ikTarget.position = Vector3.Lerp(ikTargetHome.position, reachGoal, reachAmount);
+        if(punching != null && pickup != null)
+            if (!punching.isPunching && !pickup.isReaching && !pickup.isHolding)
+                ikTarget.position = Vector3.Lerp(ikTargetHome.position, reachGoal, reachAmount);
 
         if (Input.GetKeyDown(grabKey))
             handContact.active = true;
@@ -65,6 +72,24 @@ public class Grabbing : MonoBehaviour
                 GrabPoint = Vector3.zero;
                 grabbedRigidbody = null;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && IsGrabbing)
+        {
+            handContact.active = false;
+            if (grabJoint != null)
+            {
+                Destroy(grabJoint);
+                grabJoint = null;
+            }
+            if (grabbedRigidbody != null)
+            {
+                grabbedRigidbody.linearVelocity = handRigidbody.linearVelocity;
+                grabbedRigidbody.AddForce(cam.transform.forward * throwForce, ForceMode.Impulse);
+                grabbedRigidbody = null;
+            }
+            IsGrabbing = false;
+            GrabPoint = Vector3.zero;
         }
     }
 

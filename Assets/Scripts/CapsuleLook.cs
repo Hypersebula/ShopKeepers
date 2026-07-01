@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+
+
 public class CapsuleLook : MonoBehaviour
 {
     public float sensX;

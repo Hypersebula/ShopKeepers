@@ -34,7 +34,7 @@ public class SceneTransition : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
-    private IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
         float elapsed = 0f;
         Color c = fadePanel.color;
